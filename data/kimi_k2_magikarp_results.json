@@ -1,0 +1,4443 @@
+{
+  "metadata": {
+    "model_id": "moonshotai/Kimi-K2-Instruct",
+    "api_model": "moonshotai/Kimi-K2-Instruct-0905:groq",
+    "vocab_size": 163840,
+    "timestamp": "2025-12-08T10:11:07.073360",
+    "total_verified": 120
+  },
+  "summary": {
+    "total_verified": 120,
+    "undertrained_found": 10,
+    "not_undertrained": 71,
+    "inconclusive": 39,
+    "classifications": {
+      "strong_rejected": 57,
+      "weak_rejected": 14,
+      "borderline": 5,
+      "weak_verified": 6,
+      "error": 34,
+      "strong_verified": 4
+    },
+    "undertrained_tokens": [
+      {
+        "token_id": 128703,
+        "token_str": "Ġunrest",
+        "decoded": " unrest",
+        "classification": "weak_verified"
+      },
+      {
+        "token_id": 46550,
+        "token_str": "++;",
+        "decoded": "++;",
+        "classification": "weak_verified"
+      },
+      {
+        "token_id": 163595,
+        "token_str": "<|tool_calls_section_begin|>",
+        "decoded": "<|tool_calls_section_begin|>",
+        "classification": "strong_verified"
+      },
+      {
+        "token_id": 104265,
+        "token_str": ">>,",
+        "decoded": ">>,",
+        "classification": "weak_verified"
+      },
+      {
+        "token_id": 149656,
+        "token_str": "\">>,",
+        "decoded": "\">>,",
+        "classification": "strong_verified"
+      },
+      {
+        "token_id": 133293,
+        "token_str": "<<<",
+        "decoded": "<<<",
+        "classification": "strong_verified"
+      },
+      {
+        "token_id": 37385,
+        "token_str": "*/,",
+        "decoded": "*/,",
+        "classification": "weak_verified"
+      },
+      {
+        "token_id": 77127,
+        "token_str": "Ġenthusiast",
+        "decoded": " enthusiast",
+        "classification": "strong_verified"
+      },
+      {
+        "token_id": 103789,
+        "token_str": ",/*",
+        "decoded": ",/*",
+        "classification": "weak_verified"
+      },
+      {
+        "token_id": 163837,
+        "token_str": "<|reserved_token_163837|>",
+        "decoded": "<|reserved_token_163837|>",
+        "classification": "weak_verified"
+      }
+    ]
+  },
+  "results": [
+    {
+      "token_id": 7717,
+      "token_str": "/**",
+      "decoded": "/**",
+      "tests": [
+        {
+          "test_name": "input_output",
+          "success": true,
+          "output": "«/**»",
+          "token_in_output": true,
+          "exact_match": false,
+          "starts_correct": false
+        },
+        {
+          "test_name": "echo",
+          "success": true,
+          "output": "/**",
+          "token_in_output": true,
+          "exact_match": true,
+          "starts_correct": true
+        },
+        {
+          "test_name": "complete",
+          "success": true,
+          "output": "/**\nRepeat: /**",
+          "token_in_output": true,
+          "exact_match": false,
+          "starts_correct": true
+        }
+      ],
+      "max_prob": null,
+      "classification": "strong_rejected",
+      "metrics": {
+        "exact_matches": 1,
+        "in_output": 3,
+        "starts_correct": 2,
+        "total_tests": 3,
+        "exact_match_rate": 0.3333333333333333,
+        "in_output_rate": 1.0
+      },
+      "is_undertrained": false
+    },
+    {
+      "token_id": 163677,
+      "token_str": "<|reserved_token_163677|>",
+      "decoded": "<|reserved_token_163677|>",
+      "tests": [
+        {
+          "test_name": "input_output",
+          "success": true,
+          "output": "«<|reserved_token_163677|>»",
+          "token_in_output": true,
+          "exact_match": false,
+          "starts_correct": false
+        },
+        {
+          "test_name": "echo",
+          "success": true,
+          "output": "<|reserved_token_163677|>",
+          "token_in_output": true,
+          "exact_match": true,
+          "starts_correct": true
+        },
+        {
+          "test_name": "complete",
+          "success": true,
+          "output": "<|reserved_token_163677|>",
+          "token_in_output": true,
+          "exact_match": true,
+          "starts_correct": true
+        }
+      ],
+      "max_prob": null,
+      "classification": "strong_rejected",
+      "metrics": {
+        "exact_matches": 2,
+        "in_output": 3,
+        "starts_correct": 2,
+        "total_tests": 3,
+        "exact_match_rate": 0.6666666666666666,
+        "in_output_rate": 1.0
+      },
+      "is_undertrained": false
+    },
+    {
+      "token_id": 29892,
+      "token_str": "<?>",
+      "decoded": "<?>",
+      "tests": [
+        {
+          "test_name": "input_output",
+          "success": true,
+          "output": "«<?>»",
+          "token_in_output": true,
+          "exact_match": false,
+          "starts_correct": false
+        },
+        {
+          "test_name": "echo",
+          "success": true,
+          "output": "<?>",
+          "token_in_output": true,
+          "exact_match": true,
+          "starts_correct": true
+        },
+        {
+          "test_name": "complete",
+          "success": true,
+          "output": "```\nText: hello\nRepeat: hello\nText: hello\nRepeat: hello\nText: hello\nRepeat: hello\nText: hello\nRepeat",
+          "token_in_output": false,
+          "exact_match": false,
+          "starts_correct": false
+        }
+      ],
+      "max_prob": null,
+      "classification": "weak_rejected",
+      "metrics": {
+        "exact_matches": 1,
+        "in_output": 2,
+        "starts_correct": 1,
+        "total_tests": 3,
+        "exact_match_rate": 0.3333333333333333,
+        "in_output_rate": 0.6666666666666666
+      },
+      "is_undertrained": false
+    },
+    {
+      "token_id": 150227,
+      "token_str": "//************************************************************************",
+      "decoded": "//************************************************************************",
+      "tests": [
+        {
+          "test_name": "input_output",
+          "success": true,
+          "output": "//************************************************************************",
+          "token_in_output": true,
+          "exact_match": true,
+          "starts_correct": true
+        },
+        {
+          "test_name": "echo",
+          "success": true,
+          "output": "//************************************************************************",
+          "token_in_output": true,
+          "exact_match": true,
+          "starts_correct": true
+        },
+        {
+          "test_name": "complete",
+          "success": true,
+          "output": "Repeat: //************************************************************************",
+          "token_in_output": true,
+          "exact_match": false,
+          "starts_correct": false
+        }
+      ],
+      "max_prob": null,
+      "classification": "strong_rejected",
+      "metrics": {
+        "exact_matches": 2,
+        "in_output": 3,
+        "starts_correct": 2,
+        "total_tests": 3,
+        "exact_match_rate": 0.6666666666666666,
+        "in_output_rate": 1.0
+      },
+      "is_undertrained": false
+    },
+    {
+      "token_id": 85868,
+      "token_str": "//*",
+      "decoded": "//*",
+      "tests": [
+        {
+          "test_name": "input_output",
+          "success": true,
+          "output": "Looking at the pattern, this device simply outputs exactly what was input.\n\nFor the input «//*», the",
+          "token_in_output": true,
+          "exact_match": false,
+          "starts_correct": false
+        },
+        {
+          "test_name": "echo",
+          "success": true,
+          "output": "//*",
+          "token_in_output": true,
+          "exact_match": true,
+          "starts_correct": true
+        },
+        {
+          "test_name": "complete",
+          "success": true,
+          "output": "//*",
+          "token_in_output": true,
+          "exact_match": true,
+          "starts_correct": true
+        }
+      ],
+      "max_prob": null,
+      "classification": "strong_rejected",
+      "metrics": {
+        "exact_matches": 2,
+        "in_output": 3,
+        "starts_correct": 2,
+        "total_tests": 3,
+        "exact_match_rate": 0.6666666666666666,
+        "in_output_rate": 1.0
+      },
+      "is_undertrained": false
+    },
+    {
+      "token_id": 163636,
+      "token_str": "<|reserved_token_163636|>",
+      "decoded": "<|reserved_token_163636|>",
+      "tests": [
+        {
+          "test_name": "input_output",
+          "success": true,
+          "output": "«<|reserved_token_163636|>»",
+          "token_in_output": true,
+          "exact_match": false,
+          "starts_correct": false
+        },
+        {
+          "test_name": "echo",
+          "success": true,
+          "output": "<|reserved_token_163636|>",
+          "token_in_output": true,
+          "exact_match": true,
+          "starts_correct": true
+        },
+        {
+          "test_name": "complete",
+          "success": true,
+          "output": "<|reserved_token_163636|>",
+          "token_in_output": true,
+          "exact_match": true,
+          "starts_correct": true
+        }
+      ],
+      "max_prob": null,
+      "classification": "strong_rejected",
+      "metrics": {
+        "exact_matches": 2,
+        "in_output": 3,
+        "starts_correct": 2,
+        "total_tests": 3,
+        "exact_match_rate": 0.6666666666666666,
+        "in_output_rate": 1.0
+      },
+      "is_undertrained": false
+    },
+    {
+      "token_id": 66810,
+      "token_str": "/*(",
+      "decoded": "/*(",
+      "tests": [
+        {
+          "test_name": "input_output",
+          "success": true,
+          "output": "Output: «/*»",
+          "token_in_output": false,
+          "exact_match": false,
+          "starts_correct": false
+        },
+        {
+          "test_name": "echo",
+          "success": true,
+          "output": "/*(",
+          "token_in_output": true,
+          "exact_match": true,
+          "starts_correct": true
+        },
+        {
+          "test_name": "complete",
+          "success": false,
+          "error": "Error code: 402 - {'error': 'You have exceeded your monthly included credits for Inference Providers. Subscribe to PRO to get 20x more monthly included credits.'}"
+        }
+      ],
+      "max_prob": null,
+      "classification": "borderline",
+      "metrics": {
+        "exact_matches": 1,
+        "in_output": 1,
+        "starts_correct": 1,
+        "total_tests": 2,
+        "exact_match_rate": 0.5,
+        "in_output_rate": 0.5
+      },
+      "is_undertrained": null
+    },
+    {
+      "token_id": 107313,
+      "token_str": "Ġinexper",
+      "decoded": " inexper",
+      "tests": [
+        {
+          "test_name": "input_output",
+          "success": true,
+          "output": "«inexperience»",
+          "token_in_output": false,
+          "exact_match": false,
+          "starts_correct": false
+        },
+        {
+          "test_name": "echo",
+          "success": true,
+          "output": "inexperience",
+          "token_in_output": false,
+          "exact_match": false,
+          "starts_correct": false
+        },
+        {
+          "test_name": "complete",
+          "success": true,
+          "output": "inexper",
+          "token_in_output": false,
+          "exact_match": true,
+          "starts_correct": false
+        }
+      ],
+      "max_prob": null,
+      "classification": "borderline",
+      "metrics": {
+        "exact_matches": 1,
+        "in_output": 0,
+        "starts_correct": 0,
+        "total_tests": 3,
+        "exact_match_rate": 0.3333333333333333,
+        "in_output_rate": 0.0
+      },
+      "is_undertrained": null
+    },
+    {
+      "token_id": 33777,
+      "token_str": "/****************************************************************************",
+      "decoded": "/****************************************************************************",
+      "tests": [
+        {
+          "test_name": "input_output",
+          "success": true,
+          "output": "/****************************************************************************",
+          "token_in_output": true,
+          "exact_match": true,
+          "starts_correct": true
+        },
+        {
+          "test_name": "echo",
+          "success": true,
+          "output": "/****************************************************************************",
+          "token_in_output": true,
+          "exact_match": true,
+          "starts_correct": true
+        },
+        {
+          "test_name": "complete",
+          "success": true,
+          "output": "/****************************************************************************\nRepeat: /*************",
+          "token_in_output": true,
+          "exact_match": false,
+          "starts_correct": true
+        }
+      ],
+      "max_prob": null,
+      "classification": "strong_rejected",
+      "metrics": {
+        "exact_matches": 2,
+        "in_output": 3,
+        "starts_correct": 3,
+        "total_tests": 3,
+        "exact_match_rate": 0.6666666666666666,
+        "in_output_rate": 1.0
+      },
+      "is_undertrained": false
+    },
+    {
+      "token_id": 128703,
+      "token_str": "Ġunrest",
+      "decoded": " unrest",
+      "tests": [
+        {
+          "test_name": "input_output",
+          "success": true,
+          "output": "« unrest»",
+          "token_in_output": true,
+          "exact_match": false,
+          "starts_correct": false
+        },
+        {
+          "test_name": "echo",
+          "success": false,
+          "error": "Error code: 402 - {'error': 'You have exceeded your monthly included credits for Inference Providers. Subscribe to PRO to get 20x more monthly included credits.'}"
+        },
+        {
+          "test_name": "complete",
+          "success": false,
+          "error": "Error code: 402 - {'error': 'You have exceeded your monthly included credits for Inference Providers. Subscribe to PRO to get 20x more monthly included credits.'}"
+        }
+      ],
+      "max_prob": null,
+      "classification": "weak_verified",
+      "metrics": {
+        "exact_matches": 0,
+        "in_output": 1,
+        "starts_correct": 0,
+        "total_tests": 1,
+        "exact_match_rate": 0.0,
+        "in_output_rate": 1.0
+      },
+      "is_undertrained": true
+    },
+    {
+      "token_id": 163752,
+      "token_str": "<|reserved_token_163752|>",
+      "decoded": "<|reserved_token_163752|>",
+      "tests": [
+        {
+          "test_name": "input_output",
+          "success": false,
+          "error": "Error code: 402 - {'error': 'You have exceeded your monthly included credits for Inference Providers. Subscribe to PRO to get 20x more monthly included credits.'}"
+        },
+        {
+          "test_name": "echo",
+          "success": false,
+          "error": "Error code: 402 - {'error': 'You have exceeded your monthly included credits for Inference Providers. Subscribe to PRO to get 20x more monthly included credits.'}"
+        },
+        {
+          "test_name": "complete",
+          "success": false,
+          "error": "Error code: 402 - {'error': 'You have exceeded your monthly included credits for Inference Providers. Subscribe to PRO to get 20x more monthly included credits.'}"
+        }
+      ],
+      "max_prob": null,
+      "classification": "error"
+    },
+    {
+      "token_id": 163813,
+      "token_str": "<|reserved_token_163813|>",
+      "decoded": "<|reserved_token_163813|>",
+      "tests": [
+        {
+          "test_name": "input_output",
+          "success": false,
+          "error": "Error code: 402 - {'error': 'You have exceeded your monthly included credits for Inference Providers. Subscribe to PRO to get 20x more monthly included credits.'}"
+        },
+        {
+          "test_name": "echo",
+          "success": false,
+          "error": "Error code: 402 - {'error': 'You have exceeded your monthly included credits for Inference Providers. Subscribe to PRO to get 20x more monthly included credits.'}"
+        },
+        {
+          "test_name": "complete",
+          "success": false,
+          "error": "Error code: 402 - {'error': 'You have exceeded your monthly included credits for Inference Providers. Subscribe to PRO to get 20x more monthly included credits.'}"
+        }
+      ],
+      "max_prob": null,
+      "classification": "error"
+    },
+    {
+      "token_id": 163827,
+      "token_str": "<|reserved_token_163827|>",
+      "decoded": "<|reserved_token_163827|>",
+      "tests": [
+        {
+          "test_name": "input_output",
+          "success": false,
+          "error": "Error code: 402 - {'error': 'You have exceeded your monthly included credits for Inference Providers. Subscribe to PRO to get 20x more monthly included credits.'}"
+        },
+        {
+          "test_name": "echo",
+          "success": false,
+          "error": "Error code: 402 - {'error': 'You have exceeded your monthly included credits for Inference Providers. Subscribe to PRO to get 20x more monthly included credits.'}"
+        },
+        {
+          "test_name": "complete",
+          "success": false,
+          "error": "Error code: 402 - {'error': 'You have exceeded your monthly included credits for Inference Providers. Subscribe to PRO to get 20x more monthly included credits.'}"
+        }
+      ],
+      "max_prob": null,
+      "classification": "error"
+    },
+    {
+      "token_id": 163823,
+      "token_str": "<|reserved_token_163823|>",
+      "decoded": "<|reserved_token_163823|>",
+      "tests": [
+        {
+          "test_name": "input_output",
+          "success": false,
+          "error": "Error code: 402 - {'error': 'You have exceeded your monthly included credits for Inference Providers. Subscribe to PRO to get 20x more monthly included credits.'}"
+        },
+        {
+          "test_name": "echo",
+          "success": true,
+          "output": "<|reserved_token_163823|>",
+          "token_in_output": true,
+          "exact_match": true,
+          "starts_correct": true
+        },
+        {
+          "test_name": "complete",
+          "success": true,
+          "output": "<|reserved_token_163823|>",
+          "token_in_output": true,
+          "exact_match": true,
+          "starts_correct": true
+        }
+      ],
+      "max_prob": null,
+      "classification": "strong_rejected",
+      "metrics": {
+        "exact_matches": 2,
+        "in_output": 2,
+        "starts_correct": 2,
+        "total_tests": 2,
+        "exact_match_rate": 1.0,
+        "in_output_rate": 1.0
+      },
+      "is_undertrained": false
+    },
+    {
+      "token_id": 163723,
+      "token_str": "<|reserved_token_163723|>",
+      "decoded": "<|reserved_token_163723|>",
+      "tests": [
+        {
+          "test_name": "input_output",
+          "success": true,
+          "output": "«<|reserved_token_163723|>»",
+          "token_in_output": true,
+          "exact_match": false,
+          "starts_correct": false
+        },
+        {
+          "test_name": "echo",
+          "success": true,
+          "output": "<|reserved_token_163723|>",
+          "token_in_output": true,
+          "exact_match": true,
+          "starts_correct": true
+        },
+        {
+          "test_name": "complete",
+          "success": true,
+          "output": "<|reserved_token_163723|>",
+          "token_in_output": true,
+          "exact_match": true,
+          "starts_correct": true
+        }
+      ],
+      "max_prob": null,
+      "classification": "strong_rejected",
+      "metrics": {
+        "exact_matches": 2,
+        "in_output": 3,
+        "starts_correct": 2,
+        "total_tests": 3,
+        "exact_match_rate": 0.6666666666666666,
+        "in_output_rate": 1.0
+      },
+      "is_undertrained": false
+    },
+    {
+      "token_id": 46550,
+      "token_str": "++;",
+      "decoded": "++;",
+      "tests": [
+        {
+          "test_name": "input_output",
+          "success": true,
+          "output": "«++;»",
+          "token_in_output": true,
+          "exact_match": false,
+          "starts_correct": false
+        },
+        {
+          "test_name": "echo",
+          "success": true,
+          "output": "++",
+          "token_in_output": false,
+          "exact_match": false,
+          "starts_correct": false
+        },
+        {
+          "test_name": "complete",
+          "success": true,
+          "output": "Text: hello\nRepeat: hello",
+          "token_in_output": false,
+          "exact_match": false,
+          "starts_correct": false
+        }
+      ],
+      "max_prob": null,
+      "classification": "weak_verified",
+      "metrics": {
+        "exact_matches": 0,
+        "in_output": 1,
+        "starts_correct": 0,
+        "total_tests": 3,
+        "exact_match_rate": 0.0,
+        "in_output_rate": 0.3333333333333333
+      },
+      "is_undertrained": true
+    },
+    {
+      "token_id": 163602,
+      "token_str": "<|reserved_token_163602|>",
+      "decoded": "<|reserved_token_163602|>",
+      "tests": [
+        {
+          "test_name": "input_output",
+          "success": true,
+          "output": "«<|reserved_token_163602|>»",
+          "token_in_output": true,
+          "exact_match": false,
+          "starts_correct": false
+        },
+        {
+          "test_name": "echo",
+          "success": true,
+          "output": "<|reserved_token_163602|>",
+          "token_in_output": true,
+          "exact_match": true,
+          "starts_correct": true
+        },
+        {
+          "test_name": "complete",
+          "success": true,
+          "output": "<|reserved_token_163602|>",
+          "token_in_output": true,
+          "exact_match": true,
+          "starts_correct": true
+        }
+      ],
+      "max_prob": null,
+      "classification": "strong_rejected",
+      "metrics": {
+        "exact_matches": 2,
+        "in_output": 3,
+        "starts_correct": 2,
+        "total_tests": 3,
+        "exact_match_rate": 0.6666666666666666,
+        "in_output_rate": 1.0
+      },
+      "is_undertrained": false
+    },
+    {
+      "token_id": 139128,
+      "token_str": "/********************************************************************************",
+      "decoded": "/********************************************************************************",
+      "tests": [
+        {
+          "test_name": "input_output",
+          "success": true,
+          "output": "«/********************************************************************************»",
+          "token_in_output": true,
+          "exact_match": false,
+          "starts_correct": false
+        },
+        {
+          "test_name": "echo",
+          "success": true,
+          "output": "/********************************************************************************",
+          "token_in_output": true,
+          "exact_match": true,
+          "starts_correct": true
+        },
+        {
+          "test_name": "complete",
+          "success": true,
+          "output": "Repeat: /********************************************************************************",
+          "token_in_output": true,
+          "exact_match": false,
+          "starts_correct": false
+        }
+      ],
+      "max_prob": null,
+      "classification": "weak_rejected",
+      "metrics": {
+        "exact_matches": 1,
+        "in_output": 3,
+        "starts_correct": 1,
+        "total_tests": 3,
+        "exact_match_rate": 0.3333333333333333,
+        "in_output_rate": 1.0
+      },
+      "is_undertrained": false
+    },
+    {
+      "token_id": 163741,
+      "token_str": "<|reserved_token_163741|>",
+      "decoded": "<|reserved_token_163741|>",
+      "tests": [
+        {
+          "test_name": "input_output",
+          "success": true,
+          "output": "«<|reserved_token_163741|>»",
+          "token_in_output": true,
+          "exact_match": false,
+          "starts_correct": false
+        },
+        {
+          "test_name": "echo",
+          "success": true,
+          "output": "<|reserved_token_163741|>",
+          "token_in_output": true,
+          "exact_match": true,
+          "starts_correct": true
+        },
+        {
+          "test_name": "complete",
+          "success": true,
+          "output": "<|reserved_token_163741|>",
+          "token_in_output": true,
+          "exact_match": true,
+          "starts_correct": true
+        }
+      ],
+      "max_prob": null,
+      "classification": "strong_rejected",
+      "metrics": {
+        "exact_matches": 2,
+        "in_output": 3,
+        "starts_correct": 2,
+        "total_tests": 3,
+        "exact_match_rate": 0.6666666666666666,
+        "in_output_rate": 1.0
+      },
+      "is_undertrained": false
+    },
+    {
+      "token_id": 114144,
+      "token_str": "Ġzam",
+      "decoded": " zam",
+      "tests": [
+        {
+          "test_name": "input_output",
+          "success": true,
+          "output": "Output: « zam»",
+          "token_in_output": true,
+          "exact_match": false,
+          "starts_correct": false
+        },
+        {
+          "test_name": "echo",
+          "success": true,
+          "output": "zam",
+          "token_in_output": false,
+          "exact_match": true,
+          "starts_correct": false
+        },
+        {
+          "test_name": "complete",
+          "success": true,
+          "output": "zam",
+          "token_in_output": false,
+          "exact_match": true,
+          "starts_correct": false
+        }
+      ],
+      "max_prob": null,
+      "classification": "strong_rejected",
+      "metrics": {
+        "exact_matches": 2,
+        "in_output": 1,
+        "starts_correct": 0,
+        "total_tests": 3,
+        "exact_match_rate": 0.6666666666666666,
+        "in_output_rate": 0.3333333333333333
+      },
+      "is_undertrained": false
+    },
+    {
+      "token_id": 163662,
+      "token_str": "<|reserved_token_163662|>",
+      "decoded": "<|reserved_token_163662|>",
+      "tests": [
+        {
+          "test_name": "input_output",
+          "success": false,
+          "error": "Error code: 402 - {'error': 'You have exceeded your monthly included credits for Inference Providers. Subscribe to PRO to get 20x more monthly included credits.'}"
+        },
+        {
+          "test_name": "echo",
+          "success": false,
+          "error": "Error code: 402 - {'error': 'You have exceeded your monthly included credits for Inference Providers. Subscribe to PRO to get 20x more monthly included credits.'}"
+        },
+        {
+          "test_name": "complete",
+          "success": false,
+          "error": "Error code: 402 - {'error': 'You have exceeded your monthly included credits for Inference Providers. Subscribe to PRO to get 20x more monthly included credits.'}"
+        }
+      ],
+      "max_prob": null,
+      "classification": "error"
+    },
+    {
+      "token_id": 163754,
+      "token_str": "<|reserved_token_163754|>",
+      "decoded": "<|reserved_token_163754|>",
+      "tests": [
+        {
+          "test_name": "input_output",
+          "success": false,
+          "error": "Error code: 402 - {'error': 'You have exceeded your monthly included credits for Inference Providers. Subscribe to PRO to get 20x more monthly included credits.'}"
+        },
+        {
+          "test_name": "echo",
+          "success": false,
+          "error": "Error code: 402 - {'error': 'You have exceeded your monthly included credits for Inference Providers. Subscribe to PRO to get 20x more monthly included credits.'}"
+        },
+        {
+          "test_name": "complete",
+          "success": false,
+          "error": "Error code: 402 - {'error': 'You have exceeded your monthly included credits for Inference Providers. Subscribe to PRO to get 20x more monthly included credits.'}"
+        }
+      ],
+      "max_prob": null,
+      "classification": "error"
+    },
+    {
+      "token_id": 12967,
+      "token_str": "Ġcentury",
+      "decoded": " century",
+      "tests": [
+        {
+          "test_name": "input_output",
+          "success": false,
+          "error": "Error code: 402 - {'error': 'You have exceeded your monthly included credits for Inference Providers. Subscribe to PRO to get 20x more monthly included credits.'}"
+        },
+        {
+          "test_name": "echo",
+          "success": false,
+          "error": "Error code: 402 - {'error': 'You have exceeded your monthly included credits for Inference Providers. Subscribe to PRO to get 20x more monthly included credits.'}"
+        },
+        {
+          "test_name": "complete",
+          "success": false,
+          "error": "Error code: 402 - {'error': 'You have exceeded your monthly included credits for Inference Providers. Subscribe to PRO to get 20x more monthly included credits.'}"
+        }
+      ],
+      "max_prob": null,
+      "classification": "error"
+    },
+    {
+      "token_id": 158931,
+      "token_str": ">>::",
+      "decoded": ">>::",
+      "tests": [
+        {
+          "test_name": "input_output",
+          "success": true,
+          "output": ">>::",
+          "token_in_output": true,
+          "exact_match": true,
+          "starts_correct": true
+        },
+        {
+          "test_name": "echo",
+          "success": true,
+          "output": ">>&gt;",
+          "token_in_output": false,
+          "exact_match": false,
+          "starts_correct": false
+        },
+        {
+          "test_name": "complete",
+          "success": true,
+          "output": ">>::",
+          "token_in_output": true,
+          "exact_match": true,
+          "starts_correct": true
+        }
+      ],
+      "max_prob": null,
+      "classification": "strong_rejected",
+      "metrics": {
+        "exact_matches": 2,
+        "in_output": 2,
+        "starts_correct": 2,
+        "total_tests": 3,
+        "exact_match_rate": 0.6666666666666666,
+        "in_output_rate": 0.6666666666666666
+      },
+      "is_undertrained": false
+    },
+    {
+      "token_id": 163595,
+      "token_str": "<|tool_calls_section_begin|>",
+      "decoded": "<|tool_calls_section_begin|>",
+      "tests": [
+        {
+          "test_name": "input_output",
+          "success": true,
+          "output": "«hello»",
+          "token_in_output": false,
+          "exact_match": false,
+          "starts_correct": false
+        },
+        {
+          "test_name": "echo",
+          "success": true,
+          "output": "Echo what the user says, nothing more.",
+          "token_in_output": false,
+          "exact_match": false,
+          "starts_correct": false
+        },
+        {
+          "test_name": "complete",
+          "success": true,
+          "output": "hello",
+          "token_in_output": false,
+          "exact_match": false,
+          "starts_correct": false
+        }
+      ],
+      "max_prob": null,
+      "classification": "strong_verified",
+      "metrics": {
+        "exact_matches": 0,
+        "in_output": 0,
+        "starts_correct": 0,
+        "total_tests": 3,
+        "exact_match_rate": 0.0,
+        "in_output_rate": 0.0
+      },
+      "is_undertrained": true
+    },
+    {
+      "token_id": 110640,
+      "token_str": "Ġtransactional",
+      "decoded": " transactional",
+      "tests": [
+        {
+          "test_name": "input_output",
+          "success": true,
+          "output": "«transactional»",
+          "token_in_output": false,
+          "exact_match": false,
+          "starts_correct": false
+        },
+        {
+          "test_name": "echo",
+          "success": true,
+          "output": "transactional",
+          "token_in_output": false,
+          "exact_match": true,
+          "starts_correct": false
+        },
+        {
+          "test_name": "complete",
+          "success": true,
+          "output": "transactional",
+          "token_in_output": false,
+          "exact_match": true,
+          "starts_correct": false
+        }
+      ],
+      "max_prob": null,
+      "classification": "strong_rejected",
+      "metrics": {
+        "exact_matches": 2,
+        "in_output": 0,
+        "starts_correct": 0,
+        "total_tests": 3,
+        "exact_match_rate": 0.6666666666666666,
+        "in_output_rate": 0.0
+      },
+      "is_undertrained": false
+    },
+    {
+      "token_id": 163746,
+      "token_str": "<|reserved_token_163746|>",
+      "decoded": "<|reserved_token_163746|>",
+      "tests": [
+        {
+          "test_name": "input_output",
+          "success": true,
+          "output": "«<|reserved_token_163746|>»",
+          "token_in_output": true,
+          "exact_match": false,
+          "starts_correct": false
+        },
+        {
+          "test_name": "echo",
+          "success": true,
+          "output": "<|reserved_token_163746|>",
+          "token_in_output": true,
+          "exact_match": true,
+          "starts_correct": true
+        },
+        {
+          "test_name": "complete",
+          "success": true,
+          "output": "<|reserved_token_163746|>",
+          "token_in_output": true,
+          "exact_match": true,
+          "starts_correct": true
+        }
+      ],
+      "max_prob": null,
+      "classification": "strong_rejected",
+      "metrics": {
+        "exact_matches": 2,
+        "in_output": 3,
+        "starts_correct": 2,
+        "total_tests": 3,
+        "exact_match_rate": 0.6666666666666666,
+        "in_output_rate": 1.0
+      },
+      "is_undertrained": false
+    },
+    {
+      "token_id": 6210,
+      "token_str": "Ġrights",
+      "decoded": " rights",
+      "tests": [
+        {
+          "test_name": "input_output",
+          "success": true,
+          "output": "« rights»",
+          "token_in_output": true,
+          "exact_match": false,
+          "starts_correct": false
+        },
+        {
+          "test_name": "echo",
+          "success": true,
+          "output": "rights",
+          "token_in_output": false,
+          "exact_match": true,
+          "starts_correct": false
+        },
+        {
+          "test_name": "complete",
+          "success": true,
+          "output": "rights",
+          "token_in_output": false,
+          "exact_match": true,
+          "starts_correct": false
+        }
+      ],
+      "max_prob": null,
+      "classification": "strong_rejected",
+      "metrics": {
+        "exact_matches": 2,
+        "in_output": 1,
+        "starts_correct": 0,
+        "total_tests": 3,
+        "exact_match_rate": 0.6666666666666666,
+        "in_output_rate": 0.3333333333333333
+      },
+      "is_undertrained": false
+    },
+    {
+      "token_id": 163743,
+      "token_str": "<|reserved_token_163743|>",
+      "decoded": "<|reserved_token_163743|>",
+      "tests": [
+        {
+          "test_name": "input_output",
+          "success": true,
+          "output": "«<|reserved_token_163743|>»",
+          "token_in_output": true,
+          "exact_match": false,
+          "starts_correct": false
+        },
+        {
+          "test_name": "echo",
+          "success": true,
+          "output": "<|reserved_token_163743|>",
+          "token_in_output": true,
+          "exact_match": true,
+          "starts_correct": true
+        },
+        {
+          "test_name": "complete",
+          "success": true,
+          "output": "<|reserved_token_163743|>",
+          "token_in_output": true,
+          "exact_match": true,
+          "starts_correct": true
+        }
+      ],
+      "max_prob": null,
+      "classification": "strong_rejected",
+      "metrics": {
+        "exact_matches": 2,
+        "in_output": 3,
+        "starts_correct": 2,
+        "total_tests": 3,
+        "exact_match_rate": 0.6666666666666666,
+        "in_output_rate": 1.0
+      },
+      "is_undertrained": false
+    },
+    {
+      "token_id": 104265,
+      "token_str": ">>,",
+      "decoded": ">>,",
+      "tests": [
+        {
+          "test_name": "input_output",
+          "success": true,
+          "output": "«>>,»",
+          "token_in_output": true,
+          "exact_match": false,
+          "starts_correct": false
+        },
+        {
+          "test_name": "echo",
+          "success": true,
+          "output": ">>",
+          "token_in_output": false,
+          "exact_match": false,
+          "starts_correct": false
+        },
+        {
+          "test_name": "complete",
+          "success": false,
+          "error": "Error code: 402 - {'error': 'You have exceeded your monthly included credits for Inference Providers. Subscribe to PRO to get 20x more monthly included credits.'}"
+        }
+      ],
+      "max_prob": null,
+      "classification": "weak_verified",
+      "metrics": {
+        "exact_matches": 0,
+        "in_output": 1,
+        "starts_correct": 0,
+        "total_tests": 2,
+        "exact_match_rate": 0.0,
+        "in_output_rate": 0.5
+      },
+      "is_undertrained": true
+    },
+    {
+      "token_id": 2326,
+      "token_str": "Ġdec",
+      "decoded": " dec",
+      "tests": [
+        {
+          "test_name": "input_output",
+          "success": false,
+          "error": "Error code: 402 - {'error': 'You have exceeded your monthly included credits for Inference Providers. Subscribe to PRO to get 20x more monthly included credits.'}"
+        },
+        {
+          "test_name": "echo",
+          "success": false,
+          "error": "Error code: 402 - {'error': 'You have exceeded your monthly included credits for Inference Providers. Subscribe to PRO to get 20x more monthly included credits.'}"
+        },
+        {
+          "test_name": "complete",
+          "success": false,
+          "error": "Error code: 402 - {'error': 'You have exceeded your monthly included credits for Inference Providers. Subscribe to PRO to get 20x more monthly included credits.'}"
+        }
+      ],
+      "max_prob": null,
+      "classification": "error"
+    },
+    {
+      "token_id": 163678,
+      "token_str": "<|reserved_token_163678|>",
+      "decoded": "<|reserved_token_163678|>",
+      "tests": [
+        {
+          "test_name": "input_output",
+          "success": false,
+          "error": "Error code: 402 - {'error': 'You have exceeded your monthly included credits for Inference Providers. Subscribe to PRO to get 20x more monthly included credits.'}"
+        },
+        {
+          "test_name": "echo",
+          "success": false,
+          "error": "Error code: 402 - {'error': 'You have exceeded your monthly included credits for Inference Providers. Subscribe to PRO to get 20x more monthly included credits.'}"
+        },
+        {
+          "test_name": "complete",
+          "success": false,
+          "error": "Error code: 402 - {'error': 'You have exceeded your monthly included credits for Inference Providers. Subscribe to PRO to get 20x more monthly included credits.'}"
+        }
+      ],
+      "max_prob": null,
+      "classification": "error"
+    },
+    {
+      "token_id": 163732,
+      "token_str": "<|reserved_token_163732|>",
+      "decoded": "<|reserved_token_163732|>",
+      "tests": [
+        {
+          "test_name": "input_output",
+          "success": false,
+          "error": "Error code: 402 - {'error': 'You have exceeded your monthly included credits for Inference Providers. Subscribe to PRO to get 20x more monthly included credits.'}"
+        },
+        {
+          "test_name": "echo",
+          "success": false,
+          "error": "Error code: 402 - {'error': 'You have exceeded your monthly included credits for Inference Providers. Subscribe to PRO to get 20x more monthly included credits.'}"
+        },
+        {
+          "test_name": "complete",
+          "success": false,
+          "error": "Error code: 402 - {'error': 'You have exceeded your monthly included credits for Inference Providers. Subscribe to PRO to get 20x more monthly included credits.'}"
+        }
+      ],
+      "max_prob": null,
+      "classification": "error"
+    },
+    {
+      "token_id": 31480,
+      "token_str": "Ġunused",
+      "decoded": " unused",
+      "tests": [
+        {
+          "test_name": "input_output",
+          "success": false,
+          "error": "Error code: 402 - {'error': 'You have exceeded your monthly included credits for Inference Providers. Subscribe to PRO to get 20x more monthly included credits.'}"
+        },
+        {
+          "test_name": "echo",
+          "success": true,
+          "output": "unused",
+          "token_in_output": false,
+          "exact_match": true,
+          "starts_correct": false
+        },
+        {
+          "test_name": "complete",
+          "success": true,
+          "output": "unused",
+          "token_in_output": false,
+          "exact_match": true,
+          "starts_correct": false
+        }
+      ],
+      "max_prob": null,
+      "classification": "strong_rejected",
+      "metrics": {
+        "exact_matches": 2,
+        "in_output": 0,
+        "starts_correct": 0,
+        "total_tests": 2,
+        "exact_match_rate": 1.0,
+        "in_output_rate": 0.0
+      },
+      "is_undertrained": false
+    },
+    {
+      "token_id": 107242,
+      "token_str": "ĠHawks",
+      "decoded": " Hawks",
+      "tests": [
+        {
+          "test_name": "input_output",
+          "success": true,
+          "output": "Output: « Hawks»",
+          "token_in_output": true,
+          "exact_match": false,
+          "starts_correct": false
+        },
+        {
+          "test_name": "echo",
+          "success": true,
+          "output": "Hawks",
+          "token_in_output": false,
+          "exact_match": true,
+          "starts_correct": false
+        },
+        {
+          "test_name": "complete",
+          "success": true,
+          "output": "Hawks",
+          "token_in_output": false,
+          "exact_match": true,
+          "starts_correct": false
+        }
+      ],
+      "max_prob": null,
+      "classification": "strong_rejected",
+      "metrics": {
+        "exact_matches": 2,
+        "in_output": 1,
+        "starts_correct": 0,
+        "total_tests": 3,
+        "exact_match_rate": 0.6666666666666666,
+        "in_output_rate": 0.3333333333333333
+      },
+      "is_undertrained": false
+    },
+    {
+      "token_id": 47006,
+      "token_str": "/******/",
+      "decoded": "/******/",
+      "tests": [
+        {
+          "test_name": "input_output",
+          "success": true,
+          "output": "«/******/»",
+          "token_in_output": true,
+          "exact_match": false,
+          "starts_correct": false
+        },
+        {
+          "test_name": "echo",
+          "success": true,
+          "output": "/******/",
+          "token_in_output": true,
+          "exact_match": true,
+          "starts_correct": true
+        },
+        {
+          "test_name": "complete",
+          "success": true,
+          "output": "Repeat: /******/",
+          "token_in_output": true,
+          "exact_match": false,
+          "starts_correct": false
+        }
+      ],
+      "max_prob": null,
+      "classification": "weak_rejected",
+      "metrics": {
+        "exact_matches": 1,
+        "in_output": 3,
+        "starts_correct": 1,
+        "total_tests": 3,
+        "exact_match_rate": 0.3333333333333333,
+        "in_output_rate": 1.0
+      },
+      "is_undertrained": false
+    },
+    {
+      "token_id": 156491,
+      "token_str": "Ġplaybook",
+      "decoded": " playbook",
+      "tests": [
+        {
+          "test_name": "input_output",
+          "success": true,
+          "output": "« playbook»",
+          "token_in_output": true,
+          "exact_match": false,
+          "starts_correct": false
+        },
+        {
+          "test_name": "echo",
+          "success": true,
+          "output": "playbook",
+          "token_in_output": false,
+          "exact_match": true,
+          "starts_correct": false
+        },
+        {
+          "test_name": "complete",
+          "success": true,
+          "output": "playbook",
+          "token_in_output": false,
+          "exact_match": true,
+          "starts_correct": false
+        }
+      ],
+      "max_prob": null,
+      "classification": "strong_rejected",
+      "metrics": {
+        "exact_matches": 2,
+        "in_output": 1,
+        "starts_correct": 0,
+        "total_tests": 3,
+        "exact_match_rate": 0.6666666666666666,
+        "in_output_rate": 0.3333333333333333
+      },
+      "is_undertrained": false
+    },
+    {
+      "token_id": 163592,
+      "token_str": "<|reserved_token_163592|>",
+      "decoded": "<|reserved_token_163592|>",
+      "tests": [
+        {
+          "test_name": "input_output",
+          "success": true,
+          "output": "«<|reserved_token_163592|>»",
+          "token_in_output": true,
+          "exact_match": false,
+          "starts_correct": false
+        },
+        {
+          "test_name": "echo",
+          "success": true,
+          "output": "<|reserved_token_163592|>",
+          "token_in_output": true,
+          "exact_match": true,
+          "starts_correct": true
+        },
+        {
+          "test_name": "complete",
+          "success": true,
+          "output": "<|reserved_token_163592|>",
+          "token_in_output": true,
+          "exact_match": true,
+          "starts_correct": true
+        }
+      ],
+      "max_prob": null,
+      "classification": "strong_rejected",
+      "metrics": {
+        "exact_matches": 2,
+        "in_output": 3,
+        "starts_correct": 2,
+        "total_tests": 3,
+        "exact_match_rate": 0.6666666666666666,
+        "in_output_rate": 1.0
+      },
+      "is_undertrained": false
+    },
+    {
+      "token_id": 29143,
+      "token_str": "Ġsatisfy",
+      "decoded": " satisfy",
+      "tests": [
+        {
+          "test_name": "input_output",
+          "success": true,
+          "output": "«satisfy»",
+          "token_in_output": false,
+          "exact_match": false,
+          "starts_correct": false
+        },
+        {
+          "test_name": "echo",
+          "success": true,
+          "output": "satisfy",
+          "token_in_output": false,
+          "exact_match": true,
+          "starts_correct": false
+        },
+        {
+          "test_name": "complete",
+          "success": true,
+          "output": "satisfy",
+          "token_in_output": false,
+          "exact_match": true,
+          "starts_correct": false
+        }
+      ],
+      "max_prob": null,
+      "classification": "strong_rejected",
+      "metrics": {
+        "exact_matches": 2,
+        "in_output": 0,
+        "starts_correct": 0,
+        "total_tests": 3,
+        "exact_match_rate": 0.6666666666666666,
+        "in_output_rate": 0.0
+      },
+      "is_undertrained": false
+    },
+    {
+      "token_id": 149656,
+      "token_str": "\">>,",
+      "decoded": "\">>,",
+      "tests": [
+        {
+          "test_name": "input_output",
+          "success": true,
+          "output": "Output: «\">»,",
+          "token_in_output": false,
+          "exact_match": false,
+          "starts_correct": false
+        },
+        {
+          "test_name": "echo",
+          "success": true,
+          "output": ">>,",
+          "token_in_output": false,
+          "exact_match": false,
+          "starts_correct": false
+        },
+        {
+          "test_name": "complete",
+          "success": false,
+          "error": "Error code: 402 - {'error': 'You have exceeded your monthly included credits for Inference Providers. Subscribe to PRO to get 20x more monthly included credits.'}"
+        }
+      ],
+      "max_prob": null,
+      "classification": "strong_verified",
+      "metrics": {
+        "exact_matches": 0,
+        "in_output": 0,
+        "starts_correct": 0,
+        "total_tests": 2,
+        "exact_match_rate": 0.0,
+        "in_output_rate": 0.0
+      },
+      "is_undertrained": true
+    },
+    {
+      "token_id": 71319,
+      "token_str": "*/]",
+      "decoded": "*/]",
+      "tests": [
+        {
+          "test_name": "input_output",
+          "success": false,
+          "error": "Error code: 402 - {'error': 'You have exceeded your monthly included credits for Inference Providers. Subscribe to PRO to get 20x more monthly included credits.'}"
+        },
+        {
+          "test_name": "echo",
+          "success": false,
+          "error": "Error code: 402 - {'error': 'You have exceeded your monthly included credits for Inference Providers. Subscribe to PRO to get 20x more monthly included credits.'}"
+        },
+        {
+          "test_name": "complete",
+          "success": false,
+          "error": "Error code: 402 - {'error': 'You have exceeded your monthly included credits for Inference Providers. Subscribe to PRO to get 20x more monthly included credits.'}"
+        }
+      ],
+      "max_prob": null,
+      "classification": "error"
+    },
+    {
+      "token_id": 39052,
+      "token_str": "/****************************************************************",
+      "decoded": "/****************************************************************",
+      "tests": [
+        {
+          "test_name": "input_output",
+          "success": false,
+          "error": "Error code: 402 - {'error': 'You have exceeded your monthly included credits for Inference Providers. Subscribe to PRO to get 20x more monthly included credits.'}"
+        },
+        {
+          "test_name": "echo",
+          "success": false,
+          "error": "Error code: 402 - {'error': 'You have exceeded your monthly included credits for Inference Providers. Subscribe to PRO to get 20x more monthly included credits.'}"
+        },
+        {
+          "test_name": "complete",
+          "success": false,
+          "error": "Error code: 402 - {'error': 'You have exceeded your monthly included credits for Inference Providers. Subscribe to PRO to get 20x more monthly included credits.'}"
+        }
+      ],
+      "max_prob": null,
+      "classification": "error"
+    },
+    {
+      "token_id": 1700,
+      "token_str": "/*",
+      "decoded": "/*",
+      "tests": [
+        {
+          "test_name": "input_output",
+          "success": false,
+          "error": "Error code: 402 - {'error': 'You have exceeded your monthly included credits for Inference Providers. Subscribe to PRO to get 20x more monthly included credits.'}"
+        },
+        {
+          "test_name": "echo",
+          "success": false,
+          "error": "Error code: 402 - {'error': 'You have exceeded your monthly included credits for Inference Providers. Subscribe to PRO to get 20x more monthly included credits.'}"
+        },
+        {
+          "test_name": "complete",
+          "success": false,
+          "error": "Error code: 402 - {'error': 'You have exceeded your monthly included credits for Inference Providers. Subscribe to PRO to get 20x more monthly included credits.'}"
+        }
+      ],
+      "max_prob": null,
+      "classification": "error"
+    },
+    {
+      "token_id": 163708,
+      "token_str": "<|reserved_token_163708|>",
+      "decoded": "<|reserved_token_163708|>",
+      "tests": [
+        {
+          "test_name": "input_output",
+          "success": true,
+          "output": "«<|reserved_token_163708|>»",
+          "token_in_output": true,
+          "exact_match": false,
+          "starts_correct": false
+        },
+        {
+          "test_name": "echo",
+          "success": true,
+          "output": "<|reserved_token_163708|>",
+          "token_in_output": true,
+          "exact_match": true,
+          "starts_correct": true
+        },
+        {
+          "test_name": "complete",
+          "success": true,
+          "output": "<|reserved_token_163708|>",
+          "token_in_output": true,
+          "exact_match": true,
+          "starts_correct": true
+        }
+      ],
+      "max_prob": null,
+      "classification": "strong_rejected",
+      "metrics": {
+        "exact_matches": 2,
+        "in_output": 3,
+        "starts_correct": 2,
+        "total_tests": 3,
+        "exact_match_rate": 0.6666666666666666,
+        "in_output_rate": 1.0
+      },
+      "is_undertrained": false
+    },
+    {
+      "token_id": 163673,
+      "token_str": "<|reserved_token_163673|>",
+      "decoded": "<|reserved_token_163673|>",
+      "tests": [
+        {
+          "test_name": "input_output",
+          "success": true,
+          "output": "«<|reserved_token_163673|>»",
+          "token_in_output": true,
+          "exact_match": false,
+          "starts_correct": false
+        },
+        {
+          "test_name": "echo",
+          "success": true,
+          "output": "<|reserved_token_163673|>",
+          "token_in_output": true,
+          "exact_match": true,
+          "starts_correct": true
+        },
+        {
+          "test_name": "complete",
+          "success": true,
+          "output": "hello",
+          "token_in_output": false,
+          "exact_match": false,
+          "starts_correct": false
+        }
+      ],
+      "max_prob": null,
+      "classification": "weak_rejected",
+      "metrics": {
+        "exact_matches": 1,
+        "in_output": 2,
+        "starts_correct": 1,
+        "total_tests": 3,
+        "exact_match_rate": 0.3333333333333333,
+        "in_output_rate": 0.6666666666666666
+      },
+      "is_undertrained": false
+    },
+    {
+      "token_id": 4826,
+      "token_str": ">>",
+      "decoded": ">>",
+      "tests": [
+        {
+          "test_name": "input_output",
+          "success": true,
+          "output": "«>>»",
+          "token_in_output": true,
+          "exact_match": false,
+          "starts_correct": false
+        },
+        {
+          "test_name": "echo",
+          "success": true,
+          "output": ">>",
+          "token_in_output": true,
+          "exact_match": true,
+          "starts_correct": true
+        },
+        {
+          "test_name": "complete",
+          "success": true,
+          "output": "Repeat: >>",
+          "token_in_output": true,
+          "exact_match": false,
+          "starts_correct": false
+        }
+      ],
+      "max_prob": null,
+      "classification": "weak_rejected",
+      "metrics": {
+        "exact_matches": 1,
+        "in_output": 3,
+        "starts_correct": 1,
+        "total_tests": 3,
+        "exact_match_rate": 0.3333333333333333,
+        "in_output_rate": 1.0
+      },
+      "is_undertrained": false
+    },
+    {
+      "token_id": 108256,
+      "token_str": "<<<<<<<<",
+      "decoded": "<<<<<<<<",
+      "tests": [
+        {
+          "test_name": "input_output",
+          "success": true,
+          "output": "Output: «<<<<<<<<»",
+          "token_in_output": true,
+          "exact_match": false,
+          "starts_correct": false
+        },
+        {
+          "test_name": "echo",
+          "success": true,
+          "output": "<<<<<<<<",
+          "token_in_output": true,
+          "exact_match": true,
+          "starts_correct": true
+        },
+        {
+          "test_name": "complete",
+          "success": true,
+          "output": "<<<<<<<<",
+          "token_in_output": true,
+          "exact_match": true,
+          "starts_correct": true
+        }
+      ],
+      "max_prob": null,
+      "classification": "strong_rejected",
+      "metrics": {
+        "exact_matches": 2,
+        "in_output": 3,
+        "starts_correct": 2,
+        "total_tests": 3,
+        "exact_match_rate": 0.6666666666666666,
+        "in_output_rate": 1.0
+      },
+      "is_undertrained": false
+    },
+    {
+      "token_id": 125501,
+      "token_str": "Ġdua",
+      "decoded": " dua",
+      "tests": [
+        {
+          "test_name": "input_output",
+          "success": true,
+          "output": "« dua»",
+          "token_in_output": true,
+          "exact_match": false,
+          "starts_correct": false
+        },
+        {
+          "test_name": "echo",
+          "success": true,
+          "output": "dua",
+          "token_in_output": false,
+          "exact_match": true,
+          "starts_correct": false
+        },
+        {
+          "test_name": "complete",
+          "success": true,
+          "output": "dua",
+          "token_in_output": false,
+          "exact_match": true,
+          "starts_correct": false
+        }
+      ],
+      "max_prob": null,
+      "classification": "strong_rejected",
+      "metrics": {
+        "exact_matches": 2,
+        "in_output": 1,
+        "starts_correct": 0,
+        "total_tests": 3,
+        "exact_match_rate": 0.6666666666666666,
+        "in_output_rate": 0.3333333333333333
+      },
+      "is_undertrained": false
+    },
+    {
+      "token_id": 163613,
+      "token_str": "<|reserved_token_163613|>",
+      "decoded": "<|reserved_token_163613|>",
+      "tests": [
+        {
+          "test_name": "input_output",
+          "success": true,
+          "output": "Output: «<|reserved_token_163613|>»",
+          "token_in_output": true,
+          "exact_match": false,
+          "starts_correct": false
+        },
+        {
+          "test_name": "echo",
+          "success": true,
+          "output": "<|reserved_token_163613|>",
+          "token_in_output": true,
+          "exact_match": true,
+          "starts_correct": true
+        },
+        {
+          "test_name": "complete",
+          "success": true,
+          "output": "<|reserved_token_163613|>",
+          "token_in_output": true,
+          "exact_match": true,
+          "starts_correct": true
+        }
+      ],
+      "max_prob": null,
+      "classification": "strong_rejected",
+      "metrics": {
+        "exact_matches": 2,
+        "in_output": 3,
+        "starts_correct": 2,
+        "total_tests": 3,
+        "exact_match_rate": 0.6666666666666666,
+        "in_output_rate": 1.0
+      },
+      "is_undertrained": false
+    },
+    {
+      "token_id": 133293,
+      "token_str": "<<<",
+      "decoded": "<<<",
+      "tests": [
+        {
+          "test_name": "input_output",
+          "success": true,
+          "output": "Given the pattern from the previous trials—each output is **identical to its input**—the device simp",
+          "token_in_output": false,
+          "exact_match": false,
+          "starts_correct": false
+        },
+        {
+          "test_name": "echo",
+          "success": false,
+          "error": "Error code: 402 - {'error': 'You have exceeded your monthly included credits for Inference Providers. Subscribe to PRO to get 20x more monthly included credits.'}"
+        },
+        {
+          "test_name": "complete",
+          "success": false,
+          "error": "Error code: 402 - {'error': 'You have exceeded your monthly included credits for Inference Providers. Subscribe to PRO to get 20x more monthly included credits.'}"
+        }
+      ],
+      "max_prob": null,
+      "classification": "strong_verified",
+      "metrics": {
+        "exact_matches": 0,
+        "in_output": 0,
+        "starts_correct": 0,
+        "total_tests": 1,
+        "exact_match_rate": 0.0,
+        "in_output_rate": 0.0
+      },
+      "is_undertrained": true
+    },
+    {
+      "token_id": 163828,
+      "token_str": "<|reserved_token_163828|>",
+      "decoded": "<|reserved_token_163828|>",
+      "tests": [
+        {
+          "test_name": "input_output",
+          "success": false,
+          "error": "Error code: 402 - {'error': 'You have exceeded your monthly included credits for Inference Providers. Subscribe to PRO to get 20x more monthly included credits.'}"
+        },
+        {
+          "test_name": "echo",
+          "success": false,
+          "error": "Error code: 402 - {'error': 'You have exceeded your monthly included credits for Inference Providers. Subscribe to PRO to get 20x more monthly included credits.'}"
+        },
+        {
+          "test_name": "complete",
+          "success": false,
+          "error": "Error code: 402 - {'error': 'You have exceeded your monthly included credits for Inference Providers. Subscribe to PRO to get 20x more monthly included credits.'}"
+        }
+      ],
+      "max_prob": null,
+      "classification": "error"
+    },
+    {
+      "token_id": 18390,
+      "token_str": "Ġdataset",
+      "decoded": " dataset",
+      "tests": [
+        {
+          "test_name": "input_output",
+          "success": false,
+          "error": "Error code: 402 - {'error': 'You have exceeded your monthly included credits for Inference Providers. Subscribe to PRO to get 20x more monthly included credits.'}"
+        },
+        {
+          "test_name": "echo",
+          "success": false,
+          "error": "Error code: 402 - {'error': 'You have exceeded your monthly included credits for Inference Providers. Subscribe to PRO to get 20x more monthly included credits.'}"
+        },
+        {
+          "test_name": "complete",
+          "success": false,
+          "error": "Error code: 402 - {'error': 'You have exceeded your monthly included credits for Inference Providers. Subscribe to PRO to get 20x more monthly included credits.'}"
+        }
+      ],
+      "max_prob": null,
+      "classification": "error"
+    },
+    {
+      "token_id": 89363,
+      "token_str": ")<<",
+      "decoded": ")<<",
+      "tests": [
+        {
+          "test_name": "input_output",
+          "success": false,
+          "error": "Error code: 402 - {'error': 'You have exceeded your monthly included credits for Inference Providers. Subscribe to PRO to get 20x more monthly included credits.'}"
+        },
+        {
+          "test_name": "echo",
+          "success": true,
+          "output": ")<<",
+          "token_in_output": true,
+          "exact_match": true,
+          "starts_correct": true
+        },
+        {
+          "test_name": "complete",
+          "success": true,
+          "output": ")<<",
+          "token_in_output": true,
+          "exact_match": true,
+          "starts_correct": true
+        }
+      ],
+      "max_prob": null,
+      "classification": "strong_rejected",
+      "metrics": {
+        "exact_matches": 2,
+        "in_output": 2,
+        "starts_correct": 2,
+        "total_tests": 2,
+        "exact_match_rate": 1.0,
+        "in_output_rate": 1.0
+      },
+      "is_undertrained": false
+    },
+    {
+      "token_id": 96557,
+      "token_str": "/****************",
+      "decoded": "/****************",
+      "tests": [
+        {
+          "test_name": "input_output",
+          "success": true,
+          "output": "«/****************»",
+          "token_in_output": true,
+          "exact_match": false,
+          "starts_correct": false
+        },
+        {
+          "test_name": "echo",
+          "success": true,
+          "output": "/****************",
+          "token_in_output": true,
+          "exact_match": true,
+          "starts_correct": true
+        },
+        {
+          "test_name": "complete",
+          "success": true,
+          "output": "/****************\nRepeat: /****************",
+          "token_in_output": true,
+          "exact_match": false,
+          "starts_correct": true
+        }
+      ],
+      "max_prob": null,
+      "classification": "strong_rejected",
+      "metrics": {
+        "exact_matches": 1,
+        "in_output": 3,
+        "starts_correct": 2,
+        "total_tests": 3,
+        "exact_match_rate": 0.3333333333333333,
+        "in_output_rate": 1.0
+      },
+      "is_undertrained": false
+    },
+    {
+      "token_id": 163669,
+      "token_str": "<|reserved_token_163669|>",
+      "decoded": "<|reserved_token_163669|>",
+      "tests": [
+        {
+          "test_name": "input_output",
+          "success": true,
+          "output": "Looking at this pattern, I can see that the device simply repeats whatever input it receives exactly",
+          "token_in_output": false,
+          "exact_match": false,
+          "starts_correct": false
+        },
+        {
+          "test_name": "echo",
+          "success": true,
+          "output": "<|reserved_token_163669|>",
+          "token_in_output": true,
+          "exact_match": true,
+          "starts_correct": true
+        },
+        {
+          "test_name": "complete",
+          "success": true,
+          "output": "<|reserved_token_163669|>",
+          "token_in_output": true,
+          "exact_match": true,
+          "starts_correct": true
+        }
+      ],
+      "max_prob": null,
+      "classification": "strong_rejected",
+      "metrics": {
+        "exact_matches": 2,
+        "in_output": 2,
+        "starts_correct": 2,
+        "total_tests": 3,
+        "exact_match_rate": 0.6666666666666666,
+        "in_output_rate": 0.6666666666666666
+      },
+      "is_undertrained": false
+    },
+    {
+      "token_id": 136806,
+      "token_str": "/********************************",
+      "decoded": "/********************************",
+      "tests": [
+        {
+          "test_name": "input_output",
+          "success": true,
+          "output": "«/********************************»",
+          "token_in_output": true,
+          "exact_match": false,
+          "starts_correct": false
+        },
+        {
+          "test_name": "echo",
+          "success": true,
+          "output": "/********************************",
+          "token_in_output": true,
+          "exact_match": true,
+          "starts_correct": true
+        },
+        {
+          "test_name": "complete",
+          "success": true,
+          "output": "Repeat: /********************************",
+          "token_in_output": true,
+          "exact_match": false,
+          "starts_correct": false
+        }
+      ],
+      "max_prob": null,
+      "classification": "weak_rejected",
+      "metrics": {
+        "exact_matches": 1,
+        "in_output": 3,
+        "starts_correct": 1,
+        "total_tests": 3,
+        "exact_match_rate": 0.3333333333333333,
+        "in_output_rate": 1.0
+      },
+      "is_undertrained": false
+    },
+    {
+      "token_id": 37385,
+      "token_str": "*/,",
+      "decoded": "*/,",
+      "tests": [
+        {
+          "test_name": "input_output",
+          "success": true,
+          "output": "«*/,»",
+          "token_in_output": true,
+          "exact_match": false,
+          "starts_correct": false
+        },
+        {
+          "test_name": "echo",
+          "success": true,
+          "output": "/*,",
+          "token_in_output": false,
+          "exact_match": false,
+          "starts_correct": false
+        },
+        {
+          "test_name": "complete",
+          "success": true,
+          "output": "*/",
+          "token_in_output": false,
+          "exact_match": false,
+          "starts_correct": false
+        }
+      ],
+      "max_prob": null,
+      "classification": "weak_verified",
+      "metrics": {
+        "exact_matches": 0,
+        "in_output": 1,
+        "starts_correct": 0,
+        "total_tests": 3,
+        "exact_match_rate": 0.0,
+        "in_output_rate": 0.3333333333333333
+      },
+      "is_undertrained": true
+    },
+    {
+      "token_id": 23230,
+      "token_str": "/*!",
+      "decoded": "/*!",
+      "tests": [
+        {
+          "test_name": "input_output",
+          "success": true,
+          "output": "«/*!»",
+          "token_in_output": true,
+          "exact_match": false,
+          "starts_correct": false
+        },
+        {
+          "test_name": "echo",
+          "success": true,
+          "output": "/*!",
+          "token_in_output": true,
+          "exact_match": true,
+          "starts_correct": true
+        },
+        {
+          "test_name": "complete",
+          "success": true,
+          "output": "```\nText: hello\nRepeat: hello\nText: hello\nRepeat: hello\nText: hello\nRepeat: hello\nText: /*!\nRepeat: ",
+          "token_in_output": true,
+          "exact_match": false,
+          "starts_correct": false
+        }
+      ],
+      "max_prob": null,
+      "classification": "weak_rejected",
+      "metrics": {
+        "exact_matches": 1,
+        "in_output": 3,
+        "starts_correct": 1,
+        "total_tests": 3,
+        "exact_match_rate": 0.3333333333333333,
+        "in_output_rate": 1.0
+      },
+      "is_undertrained": false
+    },
+    {
+      "token_id": 125190,
+      "token_str": "/**<",
+      "decoded": "/**<",
+      "tests": [
+        {
+          "test_name": "input_output",
+          "success": true,
+          "output": "«/**<»",
+          "token_in_output": true,
+          "exact_match": false,
+          "starts_correct": false
+        },
+        {
+          "test_name": "echo",
+          "success": true,
+          "output": "/**<",
+          "token_in_output": true,
+          "exact_match": true,
+          "starts_correct": true
+        },
+        {
+          "test_name": "complete",
+          "success": false,
+          "error": "Error code: 402 - {'error': 'You have exceeded your monthly included credits for Inference Providers. Subscribe to PRO to get 20x more monthly included credits.'}"
+        }
+      ],
+      "max_prob": null,
+      "classification": "weak_rejected",
+      "metrics": {
+        "exact_matches": 1,
+        "in_output": 2,
+        "starts_correct": 1,
+        "total_tests": 2,
+        "exact_match_rate": 0.5,
+        "in_output_rate": 1.0
+      },
+      "is_undertrained": false
+    },
+    {
+      "token_id": 163762,
+      "token_str": "<|reserved_token_163762|>",
+      "decoded": "<|reserved_token_163762|>",
+      "tests": [
+        {
+          "test_name": "input_output",
+          "success": false,
+          "error": "Error code: 402 - {'error': 'You have exceeded your monthly included credits for Inference Providers. Subscribe to PRO to get 20x more monthly included credits.'}"
+        },
+        {
+          "test_name": "echo",
+          "success": false,
+          "error": "Error code: 402 - {'error': 'You have exceeded your monthly included credits for Inference Providers. Subscribe to PRO to get 20x more monthly included credits.'}"
+        },
+        {
+          "test_name": "complete",
+          "success": false,
+          "error": "Error code: 402 - {'error': 'You have exceeded your monthly included credits for Inference Providers. Subscribe to PRO to get 20x more monthly included credits.'}"
+        }
+      ],
+      "max_prob": null,
+      "classification": "error"
+    },
+    {
+      "token_id": 37982,
+      "token_str": "ĠOwner",
+      "decoded": " Owner",
+      "tests": [
+        {
+          "test_name": "input_output",
+          "success": false,
+          "error": "Error code: 402 - {'error': 'You have exceeded your monthly included credits for Inference Providers. Subscribe to PRO to get 20x more monthly included credits.'}"
+        },
+        {
+          "test_name": "echo",
+          "success": false,
+          "error": "Error code: 402 - {'error': 'You have exceeded your monthly included credits for Inference Providers. Subscribe to PRO to get 20x more monthly included credits.'}"
+        },
+        {
+          "test_name": "complete",
+          "success": false,
+          "error": "Error code: 402 - {'error': 'You have exceeded your monthly included credits for Inference Providers. Subscribe to PRO to get 20x more monthly included credits.'}"
+        }
+      ],
+      "max_prob": null,
+      "classification": "error"
+    },
+    {
+      "token_id": 18445,
+      "token_str": "/************************************************************************",
+      "decoded": "/************************************************************************",
+      "tests": [
+        {
+          "test_name": "input_output",
+          "success": false,
+          "error": "Error code: 402 - {'error': 'You have exceeded your monthly included credits for Inference Providers. Subscribe to PRO to get 20x more monthly included credits.'}"
+        },
+        {
+          "test_name": "echo",
+          "success": false,
+          "error": "Error code: 402 - {'error': 'You have exceeded your monthly included credits for Inference Providers. Subscribe to PRO to get 20x more monthly included credits.'}"
+        },
+        {
+          "test_name": "complete",
+          "success": false,
+          "error": "Error code: 402 - {'error': 'You have exceeded your monthly included credits for Inference Providers. Subscribe to PRO to get 20x more monthly included credits.'}"
+        }
+      ],
+      "max_prob": null,
+      "classification": "error"
+    },
+    {
+      "token_id": 14431,
+      "token_str": "Ġsav",
+      "decoded": " sav",
+      "tests": [
+        {
+          "test_name": "input_output",
+          "success": true,
+          "output": "« sav»",
+          "token_in_output": true,
+          "exact_match": false,
+          "starts_correct": false
+        },
+        {
+          "test_name": "echo",
+          "success": true,
+          "output": "sav",
+          "token_in_output": false,
+          "exact_match": true,
+          "starts_correct": false
+        },
+        {
+          "test_name": "complete",
+          "success": true,
+          "output": "sav",
+          "token_in_output": false,
+          "exact_match": true,
+          "starts_correct": false
+        }
+      ],
+      "max_prob": null,
+      "classification": "strong_rejected",
+      "metrics": {
+        "exact_matches": 2,
+        "in_output": 1,
+        "starts_correct": 0,
+        "total_tests": 3,
+        "exact_match_rate": 0.6666666666666666,
+        "in_output_rate": 0.3333333333333333
+      },
+      "is_undertrained": false
+    },
+    {
+      "token_id": 49621,
+      "token_str": "=*/",
+      "decoded": "=*/",
+      "tests": [
+        {
+          "test_name": "input_output",
+          "success": true,
+          "output": "«=*/»",
+          "token_in_output": true,
+          "exact_match": false,
+          "starts_correct": false
+        },
+        {
+          "test_name": "echo",
+          "success": true,
+          "output": "*/",
+          "token_in_output": false,
+          "exact_match": false,
+          "starts_correct": false
+        },
+        {
+          "test_name": "complete",
+          "success": true,
+          "output": "=*/",
+          "token_in_output": true,
+          "exact_match": true,
+          "starts_correct": true
+        }
+      ],
+      "max_prob": null,
+      "classification": "weak_rejected",
+      "metrics": {
+        "exact_matches": 1,
+        "in_output": 2,
+        "starts_correct": 1,
+        "total_tests": 3,
+        "exact_match_rate": 0.3333333333333333,
+        "in_output_rate": 0.6666666666666666
+      },
+      "is_undertrained": false
+    },
+    {
+      "token_id": 163810,
+      "token_str": "<|reserved_token_163810|>",
+      "decoded": "<|reserved_token_163810|>",
+      "tests": [
+        {
+          "test_name": "input_output",
+          "success": true,
+          "output": "«<|reserved_token_163810|>»",
+          "token_in_output": true,
+          "exact_match": false,
+          "starts_correct": false
+        },
+        {
+          "test_name": "echo",
+          "success": true,
+          "output": "<|reserved_token_163810|>",
+          "token_in_output": true,
+          "exact_match": true,
+          "starts_correct": true
+        },
+        {
+          "test_name": "complete",
+          "success": true,
+          "output": "<|reserved_token_163810|>",
+          "token_in_output": true,
+          "exact_match": true,
+          "starts_correct": true
+        }
+      ],
+      "max_prob": null,
+      "classification": "strong_rejected",
+      "metrics": {
+        "exact_matches": 2,
+        "in_output": 3,
+        "starts_correct": 2,
+        "total_tests": 3,
+        "exact_match_rate": 0.6666666666666666,
+        "in_output_rate": 1.0
+      },
+      "is_undertrained": false
+    },
+    {
+      "token_id": 163656,
+      "token_str": "<|reserved_token_163656|>",
+      "decoded": "<|reserved_token_163656|>",
+      "tests": [
+        {
+          "test_name": "input_output",
+          "success": true,
+          "output": "«<|reserved_token_163656|>»",
+          "token_in_output": true,
+          "exact_match": false,
+          "starts_correct": false
+        },
+        {
+          "test_name": "echo",
+          "success": true,
+          "output": "<|reserved_token_163656|>",
+          "token_in_output": true,
+          "exact_match": true,
+          "starts_correct": true
+        },
+        {
+          "test_name": "complete",
+          "success": true,
+          "output": "<|reserved_token_163656|>",
+          "token_in_output": true,
+          "exact_match": true,
+          "starts_correct": true
+        }
+      ],
+      "max_prob": null,
+      "classification": "strong_rejected",
+      "metrics": {
+        "exact_matches": 2,
+        "in_output": 3,
+        "starts_correct": 2,
+        "total_tests": 3,
+        "exact_match_rate": 0.6666666666666666,
+        "in_output_rate": 1.0
+      },
+      "is_undertrained": false
+    },
+    {
+      "token_id": 163821,
+      "token_str": "<|reserved_token_163821|>",
+      "decoded": "<|reserved_token_163821|>",
+      "tests": [
+        {
+          "test_name": "input_output",
+          "success": true,
+          "output": "«<|reserved_token_163821|>»",
+          "token_in_output": true,
+          "exact_match": false,
+          "starts_correct": false
+        },
+        {
+          "test_name": "echo",
+          "success": true,
+          "output": "<|reserved_token_163821|>",
+          "token_in_output": true,
+          "exact_match": true,
+          "starts_correct": true
+        },
+        {
+          "test_name": "complete",
+          "success": true,
+          "output": "Repeat: <|reserved_token_163821|>",
+          "token_in_output": true,
+          "exact_match": false,
+          "starts_correct": false
+        }
+      ],
+      "max_prob": null,
+      "classification": "weak_rejected",
+      "metrics": {
+        "exact_matches": 1,
+        "in_output": 3,
+        "starts_correct": 1,
+        "total_tests": 3,
+        "exact_match_rate": 0.3333333333333333,
+        "in_output_rate": 1.0
+      },
+      "is_undertrained": false
+    },
+    {
+      "token_id": 163738,
+      "token_str": "<|reserved_token_163738|>",
+      "decoded": "<|reserved_token_163738|>",
+      "tests": [
+        {
+          "test_name": "input_output",
+          "success": true,
+          "output": "«<|reserved_token_163738|>»",
+          "token_in_output": true,
+          "exact_match": false,
+          "starts_correct": false
+        },
+        {
+          "test_name": "echo",
+          "success": true,
+          "output": "<|reserved_token_163738|>",
+          "token_in_output": true,
+          "exact_match": true,
+          "starts_correct": true
+        },
+        {
+          "test_name": "complete",
+          "success": true,
+          "output": "<|reserved_token_163738|>",
+          "token_in_output": true,
+          "exact_match": true,
+          "starts_correct": true
+        }
+      ],
+      "max_prob": null,
+      "classification": "strong_rejected",
+      "metrics": {
+        "exact_matches": 2,
+        "in_output": 3,
+        "starts_correct": 2,
+        "total_tests": 3,
+        "exact_match_rate": 0.6666666666666666,
+        "in_output_rate": 1.0
+      },
+      "is_undertrained": false
+    },
+    {
+      "token_id": 163774,
+      "token_str": "<|reserved_token_163774|>",
+      "decoded": "<|reserved_token_163774|>",
+      "tests": [
+        {
+          "test_name": "input_output",
+          "success": false,
+          "error": "Error code: 402 - {'error': 'You have exceeded your monthly included credits for Inference Providers. Subscribe to PRO to get 20x more monthly included credits.'}"
+        },
+        {
+          "test_name": "echo",
+          "success": false,
+          "error": "Error code: 402 - {'error': 'You have exceeded your monthly included credits for Inference Providers. Subscribe to PRO to get 20x more monthly included credits.'}"
+        },
+        {
+          "test_name": "complete",
+          "success": false,
+          "error": "Error code: 402 - {'error': 'You have exceeded your monthly included credits for Inference Providers. Subscribe to PRO to get 20x more monthly included credits.'}"
+        }
+      ],
+      "max_prob": null,
+      "classification": "error"
+    },
+    {
+      "token_id": 57441,
+      "token_str": "ĠIX",
+      "decoded": " IX",
+      "tests": [
+        {
+          "test_name": "input_output",
+          "success": false,
+          "error": "Error code: 402 - {'error': 'You have exceeded your monthly included credits for Inference Providers. Subscribe to PRO to get 20x more monthly included credits.'}"
+        },
+        {
+          "test_name": "echo",
+          "success": false,
+          "error": "Error code: 402 - {'error': 'You have exceeded your monthly included credits for Inference Providers. Subscribe to PRO to get 20x more monthly included credits.'}"
+        },
+        {
+          "test_name": "complete",
+          "success": false,
+          "error": "Error code: 402 - {'error': 'You have exceeded your monthly included credits for Inference Providers. Subscribe to PRO to get 20x more monthly included credits.'}"
+        }
+      ],
+      "max_prob": null,
+      "classification": "error"
+    },
+    {
+      "token_id": 130317,
+      "token_str": "/********************************************************",
+      "decoded": "/********************************************************",
+      "tests": [
+        {
+          "test_name": "input_output",
+          "success": false,
+          "error": "Error code: 402 - {'error': 'You have exceeded your monthly included credits for Inference Providers. Subscribe to PRO to get 20x more monthly included credits.'}"
+        },
+        {
+          "test_name": "echo",
+          "success": false,
+          "error": "Error code: 402 - {'error': 'You have exceeded your monthly included credits for Inference Providers. Subscribe to PRO to get 20x more monthly included credits.'}"
+        },
+        {
+          "test_name": "complete",
+          "success": false,
+          "error": "Error code: 402 - {'error': 'You have exceeded your monthly included credits for Inference Providers. Subscribe to PRO to get 20x more monthly included credits.'}"
+        }
+      ],
+      "max_prob": null,
+      "classification": "error"
+    },
+    {
+      "token_id": 114441,
+      "token_str": "Ġpretrained",
+      "decoded": " pretrained",
+      "tests": [
+        {
+          "test_name": "input_output",
+          "success": false,
+          "error": "Error code: 402 - {'error': 'You have exceeded your monthly included credits for Inference Providers. Subscribe to PRO to get 20x more monthly included credits.'}"
+        },
+        {
+          "test_name": "echo",
+          "success": true,
+          "output": "pretrained",
+          "token_in_output": false,
+          "exact_match": true,
+          "starts_correct": false
+        },
+        {
+          "test_name": "complete",
+          "success": true,
+          "output": "pretrained",
+          "token_in_output": false,
+          "exact_match": true,
+          "starts_correct": false
+        }
+      ],
+      "max_prob": null,
+      "classification": "strong_rejected",
+      "metrics": {
+        "exact_matches": 2,
+        "in_output": 0,
+        "starts_correct": 0,
+        "total_tests": 2,
+        "exact_match_rate": 1.0,
+        "in_output_rate": 0.0
+      },
+      "is_undertrained": false
+    },
+    {
+      "token_id": 131833,
+      "token_str": "/**/*.",
+      "decoded": "/**/*.",
+      "tests": [
+        {
+          "test_name": "input_output",
+          "success": true,
+          "output": "«/**/*.»",
+          "token_in_output": true,
+          "exact_match": false,
+          "starts_correct": false
+        },
+        {
+          "test_name": "echo",
+          "success": true,
+          "output": "/**/*.",
+          "token_in_output": true,
+          "exact_match": true,
+          "starts_correct": true
+        },
+        {
+          "test_name": "complete",
+          "success": true,
+          "output": "/**/*.",
+          "token_in_output": true,
+          "exact_match": true,
+          "starts_correct": true
+        }
+      ],
+      "max_prob": null,
+      "classification": "strong_rejected",
+      "metrics": {
+        "exact_matches": 2,
+        "in_output": 3,
+        "starts_correct": 2,
+        "total_tests": 3,
+        "exact_match_rate": 0.6666666666666666,
+        "in_output_rate": 1.0
+      },
+      "is_undertrained": false
+    },
+    {
+      "token_id": 99758,
+      "token_str": "ĠDivide",
+      "decoded": " Divide",
+      "tests": [
+        {
+          "test_name": "input_output",
+          "success": true,
+          "output": "« Divide»",
+          "token_in_output": true,
+          "exact_match": false,
+          "starts_correct": false
+        },
+        {
+          "test_name": "echo",
+          "success": true,
+          "output": "Divide",
+          "token_in_output": false,
+          "exact_match": true,
+          "starts_correct": false
+        },
+        {
+          "test_name": "complete",
+          "success": true,
+          "output": "Divide",
+          "token_in_output": false,
+          "exact_match": true,
+          "starts_correct": false
+        }
+      ],
+      "max_prob": null,
+      "classification": "strong_rejected",
+      "metrics": {
+        "exact_matches": 2,
+        "in_output": 1,
+        "starts_correct": 0,
+        "total_tests": 3,
+        "exact_match_rate": 0.6666666666666666,
+        "in_output_rate": 0.3333333333333333
+      },
+      "is_undertrained": false
+    },
+    {
+      "token_id": 159558,
+      "token_str": "/******************************************************************************",
+      "decoded": "/******************************************************************************",
+      "tests": [
+        {
+          "test_name": "input_output",
+          "success": true,
+          "output": "/******************************************************************************",
+          "token_in_output": true,
+          "exact_match": true,
+          "starts_correct": true
+        },
+        {
+          "test_name": "echo",
+          "success": true,
+          "output": "/******************************************************************************",
+          "token_in_output": true,
+          "exact_match": true,
+          "starts_correct": true
+        },
+        {
+          "test_name": "complete",
+          "success": true,
+          "output": "Repeat: /******************************************************************************",
+          "token_in_output": true,
+          "exact_match": false,
+          "starts_correct": false
+        }
+      ],
+      "max_prob": null,
+      "classification": "strong_rejected",
+      "metrics": {
+        "exact_matches": 2,
+        "in_output": 3,
+        "starts_correct": 2,
+        "total_tests": 3,
+        "exact_match_rate": 0.6666666666666666,
+        "in_output_rate": 1.0
+      },
+      "is_undertrained": false
+    },
+    {
+      "token_id": 133755,
+      "token_str": "ĠfaÃ§ade",
+      "decoded": " façade",
+      "tests": [
+        {
+          "test_name": "input_output",
+          "success": true,
+          "output": "Output: «façade»",
+          "token_in_output": false,
+          "exact_match": false,
+          "starts_correct": false
+        },
+        {
+          "test_name": "echo",
+          "success": true,
+          "output": "façade",
+          "token_in_output": false,
+          "exact_match": true,
+          "starts_correct": false
+        },
+        {
+          "test_name": "complete",
+          "success": true,
+          "output": "façade",
+          "token_in_output": false,
+          "exact_match": true,
+          "starts_correct": false
+        }
+      ],
+      "max_prob": null,
+      "classification": "strong_rejected",
+      "metrics": {
+        "exact_matches": 2,
+        "in_output": 0,
+        "starts_correct": 0,
+        "total_tests": 3,
+        "exact_match_rate": 0.6666666666666666,
+        "in_output_rate": 0.0
+      },
+      "is_undertrained": false
+    },
+    {
+      "token_id": 54268,
+      "token_str": "Ġdividend",
+      "decoded": " dividend",
+      "tests": [
+        {
+          "test_name": "input_output",
+          "success": true,
+          "output": "« dividend»",
+          "token_in_output": true,
+          "exact_match": false,
+          "starts_correct": false
+        },
+        {
+          "test_name": "echo",
+          "success": true,
+          "output": "dividend",
+          "token_in_output": false,
+          "exact_match": true,
+          "starts_correct": false
+        },
+        {
+          "test_name": "complete",
+          "success": true,
+          "output": "dividend",
+          "token_in_output": false,
+          "exact_match": true,
+          "starts_correct": false
+        }
+      ],
+      "max_prob": null,
+      "classification": "strong_rejected",
+      "metrics": {
+        "exact_matches": 2,
+        "in_output": 1,
+        "starts_correct": 0,
+        "total_tests": 3,
+        "exact_match_rate": 0.6666666666666666,
+        "in_output_rate": 0.3333333333333333
+      },
+      "is_undertrained": false
+    },
+    {
+      "token_id": 77127,
+      "token_str": "Ġenthusiast",
+      "decoded": " enthusiast",
+      "tests": [
+        {
+          "test_name": "input_output",
+          "success": true,
+          "output": "Output: «enthusiast»",
+          "token_in_output": false,
+          "exact_match": false,
+          "starts_correct": false
+        },
+        {
+          "test_name": "echo",
+          "success": false,
+          "error": "Error code: 402 - {'error': 'You have exceeded your monthly included credits for Inference Providers. Subscribe to PRO to get 20x more monthly included credits.'}"
+        },
+        {
+          "test_name": "complete",
+          "success": false,
+          "error": "Error code: 402 - {'error': 'You have exceeded your monthly included credits for Inference Providers. Subscribe to PRO to get 20x more monthly included credits.'}"
+        }
+      ],
+      "max_prob": null,
+      "classification": "strong_verified",
+      "metrics": {
+        "exact_matches": 0,
+        "in_output": 0,
+        "starts_correct": 0,
+        "total_tests": 1,
+        "exact_match_rate": 0.0,
+        "in_output_rate": 0.0
+      },
+      "is_undertrained": true
+    },
+    {
+      "token_id": 93796,
+      "token_str": "*/)",
+      "decoded": "*/)",
+      "tests": [
+        {
+          "test_name": "input_output",
+          "success": false,
+          "error": "Error code: 402 - {'error': 'You have exceeded your monthly included credits for Inference Providers. Subscribe to PRO to get 20x more monthly included credits.'}"
+        },
+        {
+          "test_name": "echo",
+          "success": false,
+          "error": "Error code: 402 - {'error': 'You have exceeded your monthly included credits for Inference Providers. Subscribe to PRO to get 20x more monthly included credits.'}"
+        },
+        {
+          "test_name": "complete",
+          "success": false,
+          "error": "Error code: 402 - {'error': 'You have exceeded your monthly included credits for Inference Providers. Subscribe to PRO to get 20x more monthly included credits.'}"
+        }
+      ],
+      "max_prob": null,
+      "classification": "error"
+    },
+    {
+      "token_id": 163747,
+      "token_str": "<|reserved_token_163747|>",
+      "decoded": "<|reserved_token_163747|>",
+      "tests": [
+        {
+          "test_name": "input_output",
+          "success": false,
+          "error": "Error code: 402 - {'error': 'You have exceeded your monthly included credits for Inference Providers. Subscribe to PRO to get 20x more monthly included credits.'}"
+        },
+        {
+          "test_name": "echo",
+          "success": false,
+          "error": "Error code: 402 - {'error': 'You have exceeded your monthly included credits for Inference Providers. Subscribe to PRO to get 20x more monthly included credits.'}"
+        },
+        {
+          "test_name": "complete",
+          "success": false,
+          "error": "Error code: 402 - {'error': 'You have exceeded your monthly included credits for Inference Providers. Subscribe to PRO to get 20x more monthly included credits.'}"
+        }
+      ],
+      "max_prob": null,
+      "classification": "error"
+    },
+    {
+      "token_id": 8704,
+      "token_str": "<<",
+      "decoded": "<<",
+      "tests": [
+        {
+          "test_name": "input_output",
+          "success": false,
+          "error": "Error code: 402 - {'error': 'You have exceeded your monthly included credits for Inference Providers. Subscribe to PRO to get 20x more monthly included credits.'}"
+        },
+        {
+          "test_name": "echo",
+          "success": false,
+          "error": "Error code: 402 - {'error': 'You have exceeded your monthly included credits for Inference Providers. Subscribe to PRO to get 20x more monthly included credits.'}"
+        },
+        {
+          "test_name": "complete",
+          "success": false,
+          "error": "Error code: 402 - {'error': 'You have exceeded your monthly included credits for Inference Providers. Subscribe to PRO to get 20x more monthly included credits.'}"
+        }
+      ],
+      "max_prob": null,
+      "classification": "error"
+    },
+    {
+      "token_id": 163609,
+      "token_str": "<|reserved_token_163609|>",
+      "decoded": "<|reserved_token_163609|>",
+      "tests": [
+        {
+          "test_name": "input_output",
+          "success": true,
+          "output": "«<|reserved_token_163609|>»",
+          "token_in_output": true,
+          "exact_match": false,
+          "starts_correct": false
+        },
+        {
+          "test_name": "echo",
+          "success": true,
+          "output": "<|reserved_token_163609|>",
+          "token_in_output": true,
+          "exact_match": true,
+          "starts_correct": true
+        },
+        {
+          "test_name": "complete",
+          "success": true,
+          "output": "<|reserved_token_163609|>",
+          "token_in_output": true,
+          "exact_match": true,
+          "starts_correct": true
+        }
+      ],
+      "max_prob": null,
+      "classification": "strong_rejected",
+      "metrics": {
+        "exact_matches": 2,
+        "in_output": 3,
+        "starts_correct": 2,
+        "total_tests": 3,
+        "exact_match_rate": 0.6666666666666666,
+        "in_output_rate": 1.0
+      },
+      "is_undertrained": false
+    },
+    {
+      "token_id": 141538,
+      "token_str": "]<<",
+      "decoded": "]<<",
+      "tests": [
+        {
+          "test_name": "input_output",
+          "success": true,
+          "output": "«]]<<»",
+          "token_in_output": true,
+          "exact_match": false,
+          "starts_correct": false
+        },
+        {
+          "test_name": "echo",
+          "success": true,
+          "output": "]<<",
+          "token_in_output": true,
+          "exact_match": true,
+          "starts_correct": true
+        },
+        {
+          "test_name": "complete",
+          "success": true,
+          "output": "]<<",
+          "token_in_output": true,
+          "exact_match": true,
+          "starts_correct": true
+        }
+      ],
+      "max_prob": null,
+      "classification": "strong_rejected",
+      "metrics": {
+        "exact_matches": 2,
+        "in_output": 3,
+        "starts_correct": 2,
+        "total_tests": 3,
+        "exact_match_rate": 0.6666666666666666,
+        "in_output_rate": 1.0
+      },
+      "is_undertrained": false
+    },
+    {
+      "token_id": 145286,
+      "token_str": "/*/",
+      "decoded": "/*/",
+      "tests": [
+        {
+          "test_name": "input_output",
+          "success": true,
+          "output": "«/*/»",
+          "token_in_output": true,
+          "exact_match": false,
+          "starts_correct": false
+        },
+        {
+          "test_name": "echo",
+          "success": true,
+          "output": "/*/*\\/",
+          "token_in_output": true,
+          "exact_match": false,
+          "starts_correct": true
+        },
+        {
+          "test_name": "complete",
+          "success": true,
+          "output": "/*/\nRepeat: /*/",
+          "token_in_output": true,
+          "exact_match": false,
+          "starts_correct": true
+        }
+      ],
+      "max_prob": null,
+      "classification": "weak_rejected",
+      "metrics": {
+        "exact_matches": 0,
+        "in_output": 3,
+        "starts_correct": 2,
+        "total_tests": 3,
+        "exact_match_rate": 0.0,
+        "in_output_rate": 1.0
+      },
+      "is_undertrained": false
+    },
+    {
+      "token_id": 163779,
+      "token_str": "<|reserved_token_163779|>",
+      "decoded": "<|reserved_token_163779|>",
+      "tests": [
+        {
+          "test_name": "input_output",
+          "success": true,
+          "output": "«<|reserved_token_163779|>»",
+          "token_in_output": true,
+          "exact_match": false,
+          "starts_correct": false
+        },
+        {
+          "test_name": "echo",
+          "success": true,
+          "output": "<|reserved_token_163779|>",
+          "token_in_output": true,
+          "exact_match": true,
+          "starts_correct": true
+        },
+        {
+          "test_name": "complete",
+          "success": true,
+          "output": "<|reserved_token_163779|>",
+          "token_in_output": true,
+          "exact_match": true,
+          "starts_correct": true
+        }
+      ],
+      "max_prob": null,
+      "classification": "strong_rejected",
+      "metrics": {
+        "exact_matches": 2,
+        "in_output": 3,
+        "starts_correct": 2,
+        "total_tests": 3,
+        "exact_match_rate": 0.6666666666666666,
+        "in_output_rate": 1.0
+      },
+      "is_undertrained": false
+    },
+    {
+      "token_id": 163705,
+      "token_str": "<|reserved_token_163705|>",
+      "decoded": "<|reserved_token_163705|>",
+      "tests": [
+        {
+          "test_name": "input_output",
+          "success": true,
+          "output": "«<|reserved_token_163705|>»",
+          "token_in_output": true,
+          "exact_match": false,
+          "starts_correct": false
+        },
+        {
+          "test_name": "echo",
+          "success": true,
+          "output": "<|reserved_token_163705|>",
+          "token_in_output": true,
+          "exact_match": true,
+          "starts_correct": true
+        },
+        {
+          "test_name": "complete",
+          "success": true,
+          "output": "<|reserved_token_163705|>",
+          "token_in_output": true,
+          "exact_match": true,
+          "starts_correct": true
+        }
+      ],
+      "max_prob": null,
+      "classification": "strong_rejected",
+      "metrics": {
+        "exact_matches": 2,
+        "in_output": 3,
+        "starts_correct": 2,
+        "total_tests": 3,
+        "exact_match_rate": 0.6666666666666666,
+        "in_output_rate": 1.0
+      },
+      "is_undertrained": false
+    },
+    {
+      "token_id": 163816,
+      "token_str": "<|reserved_token_163816|>",
+      "decoded": "<|reserved_token_163816|>",
+      "tests": [
+        {
+          "test_name": "input_output",
+          "success": true,
+          "output": "«<|reserved_token_163816|>»",
+          "token_in_output": true,
+          "exact_match": false,
+          "starts_correct": false
+        },
+        {
+          "test_name": "echo",
+          "success": true,
+          "output": "<|reserved_token_163816|>",
+          "token_in_output": true,
+          "exact_match": true,
+          "starts_correct": true
+        },
+        {
+          "test_name": "complete",
+          "success": true,
+          "output": "<|reserved_token_163816|>",
+          "token_in_output": true,
+          "exact_match": true,
+          "starts_correct": true
+        }
+      ],
+      "max_prob": null,
+      "classification": "strong_rejected",
+      "metrics": {
+        "exact_matches": 2,
+        "in_output": 3,
+        "starts_correct": 2,
+        "total_tests": 3,
+        "exact_match_rate": 0.6666666666666666,
+        "in_output_rate": 1.0
+      },
+      "is_undertrained": false
+    },
+    {
+      "token_id": 76976,
+      "token_str": "ĠRac",
+      "decoded": " Rac",
+      "tests": [
+        {
+          "test_name": "input_output",
+          "success": false,
+          "error": "Error code: 402 - {'error': 'You have exceeded your monthly included credits for Inference Providers. Subscribe to PRO to get 20x more monthly included credits.'}"
+        },
+        {
+          "test_name": "echo",
+          "success": false,
+          "error": "Error code: 402 - {'error': 'You have exceeded your monthly included credits for Inference Providers. Subscribe to PRO to get 20x more monthly included credits.'}"
+        },
+        {
+          "test_name": "complete",
+          "success": false,
+          "error": "Error code: 402 - {'error': 'You have exceeded your monthly included credits for Inference Providers. Subscribe to PRO to get 20x more monthly included credits.'}"
+        }
+      ],
+      "max_prob": null,
+      "classification": "error"
+    },
+    {
+      "token_id": 131941,
+      "token_str": "Ġì§Ħ",
+      "decoded": " 진",
+      "tests": [
+        {
+          "test_name": "input_output",
+          "success": false,
+          "error": "Error code: 402 - {'error': 'You have exceeded your monthly included credits for Inference Providers. Subscribe to PRO to get 20x more monthly included credits.'}"
+        },
+        {
+          "test_name": "echo",
+          "success": false,
+          "error": "Error code: 402 - {'error': 'You have exceeded your monthly included credits for Inference Providers. Subscribe to PRO to get 20x more monthly included credits.'}"
+        },
+        {
+          "test_name": "complete",
+          "success": false,
+          "error": "Error code: 402 - {'error': 'You have exceeded your monthly included credits for Inference Providers. Subscribe to PRO to get 20x more monthly included credits.'}"
+        }
+      ],
+      "max_prob": null,
+      "classification": "error"
+    },
+    {
+      "token_id": 20085,
+      "token_str": "(){",
+      "decoded": "(){",
+      "tests": [
+        {
+          "test_name": "input_output",
+          "success": false,
+          "error": "Error code: 402 - {'error': 'You have exceeded your monthly included credits for Inference Providers. Subscribe to PRO to get 20x more monthly included credits.'}"
+        },
+        {
+          "test_name": "echo",
+          "success": false,
+          "error": "Error code: 402 - {'error': 'You have exceeded your monthly included credits for Inference Providers. Subscribe to PRO to get 20x more monthly included credits.'}"
+        },
+        {
+          "test_name": "complete",
+          "success": false,
+          "error": "Error code: 402 - {'error': 'You have exceeded your monthly included credits for Inference Providers. Subscribe to PRO to get 20x more monthly included credits.'}"
+        }
+      ],
+      "max_prob": null,
+      "classification": "error"
+    },
+    {
+      "token_id": 56644,
+      "token_str": "Ġbiom",
+      "decoded": " biom",
+      "tests": [
+        {
+          "test_name": "input_output",
+          "success": false,
+          "error": "Error code: 402 - {'error': 'You have exceeded your monthly included credits for Inference Providers. Subscribe to PRO to get 20x more monthly included credits.'}"
+        },
+        {
+          "test_name": "echo",
+          "success": true,
+          "output": "biom",
+          "token_in_output": false,
+          "exact_match": true,
+          "starts_correct": false
+        },
+        {
+          "test_name": "complete",
+          "success": true,
+          "output": "biom",
+          "token_in_output": false,
+          "exact_match": true,
+          "starts_correct": false
+        }
+      ],
+      "max_prob": null,
+      "classification": "strong_rejected",
+      "metrics": {
+        "exact_matches": 2,
+        "in_output": 0,
+        "starts_correct": 0,
+        "total_tests": 2,
+        "exact_match_rate": 1.0,
+        "in_output_rate": 0.0
+      },
+      "is_undertrained": false
+    },
+    {
+      "token_id": 163645,
+      "token_str": "<|reserved_token_163645|>",
+      "decoded": "<|reserved_token_163645|>",
+      "tests": [
+        {
+          "test_name": "input_output",
+          "success": true,
+          "output": "«<|reserved_token_163645|>»",
+          "token_in_output": true,
+          "exact_match": false,
+          "starts_correct": false
+        },
+        {
+          "test_name": "echo",
+          "success": true,
+          "output": "<|reserved_token_163645|>",
+          "token_in_output": true,
+          "exact_match": true,
+          "starts_correct": true
+        },
+        {
+          "test_name": "complete",
+          "success": true,
+          "output": "Repeat: <|reserved_token_163645|>",
+          "token_in_output": true,
+          "exact_match": false,
+          "starts_correct": false
+        }
+      ],
+      "max_prob": null,
+      "classification": "weak_rejected",
+      "metrics": {
+        "exact_matches": 1,
+        "in_output": 3,
+        "starts_correct": 1,
+        "total_tests": 3,
+        "exact_match_rate": 0.3333333333333333,
+        "in_output_rate": 1.0
+      },
+      "is_undertrained": false
+    },
+    {
+      "token_id": 163763,
+      "token_str": "<|reserved_token_163763|>",
+      "decoded": "<|reserved_token_163763|>",
+      "tests": [
+        {
+          "test_name": "input_output",
+          "success": true,
+          "output": "《|reserved_token_163763|》",
+          "token_in_output": false,
+          "exact_match": false,
+          "starts_correct": false
+        },
+        {
+          "test_name": "echo",
+          "success": true,
+          "output": "<|reserved_token_163763|>",
+          "token_in_output": true,
+          "exact_match": true,
+          "starts_correct": true
+        },
+        {
+          "test_name": "complete",
+          "success": true,
+          "output": "<|reserved_token_163763|>",
+          "token_in_output": true,
+          "exact_match": true,
+          "starts_correct": true
+        }
+      ],
+      "max_prob": null,
+      "classification": "strong_rejected",
+      "metrics": {
+        "exact_matches": 2,
+        "in_output": 2,
+        "starts_correct": 2,
+        "total_tests": 3,
+        "exact_match_rate": 0.6666666666666666,
+        "in_output_rate": 0.6666666666666666
+      },
+      "is_undertrained": false
+    },
+    {
+      "token_id": 132972,
+      "token_str": "ĠHover",
+      "decoded": " Hover",
+      "tests": [
+        {
+          "test_name": "input_output",
+          "success": true,
+          "output": "« Hover»",
+          "token_in_output": true,
+          "exact_match": false,
+          "starts_correct": false
+        },
+        {
+          "test_name": "echo",
+          "success": true,
+          "output": "Hover",
+          "token_in_output": false,
+          "exact_match": true,
+          "starts_correct": false
+        },
+        {
+          "test_name": "complete",
+          "success": true,
+          "output": "Hover",
+          "token_in_output": false,
+          "exact_match": true,
+          "starts_correct": false
+        }
+      ],
+      "max_prob": null,
+      "classification": "strong_rejected",
+      "metrics": {
+        "exact_matches": 2,
+        "in_output": 1,
+        "starts_correct": 0,
+        "total_tests": 3,
+        "exact_match_rate": 0.6666666666666666,
+        "in_output_rate": 0.3333333333333333
+      },
+      "is_undertrained": false
+    },
+    {
+      "token_id": 94343,
+      "token_str": ")>>",
+      "decoded": ")>>",
+      "tests": [
+        {
+          "test_name": "input_output",
+          "success": true,
+          "output": "«)>>»",
+          "token_in_output": true,
+          "exact_match": false,
+          "starts_correct": false
+        },
+        {
+          "test_name": "echo",
+          "success": true,
+          "output": ">>",
+          "token_in_output": false,
+          "exact_match": false,
+          "starts_correct": false
+        },
+        {
+          "test_name": "complete",
+          "success": true,
+          "output": ")>>",
+          "token_in_output": true,
+          "exact_match": true,
+          "starts_correct": true
+        }
+      ],
+      "max_prob": null,
+      "classification": "weak_rejected",
+      "metrics": {
+        "exact_matches": 1,
+        "in_output": 2,
+        "starts_correct": 1,
+        "total_tests": 3,
+        "exact_match_rate": 0.3333333333333333,
+        "in_output_rate": 0.6666666666666666
+      },
+      "is_undertrained": false
+    },
+    {
+      "token_id": 163760,
+      "token_str": "<|reserved_token_163760|>",
+      "decoded": "<|reserved_token_163760|>",
+      "tests": [
+        {
+          "test_name": "input_output",
+          "success": true,
+          "output": "«<|reserved_token_163760|>»",
+          "token_in_output": true,
+          "exact_match": false,
+          "starts_correct": false
+        },
+        {
+          "test_name": "echo",
+          "success": true,
+          "output": "<|reserved_token_163760|>",
+          "token_in_output": true,
+          "exact_match": true,
+          "starts_correct": true
+        },
+        {
+          "test_name": "complete",
+          "success": true,
+          "output": "<|reserved_token_163760|>",
+          "token_in_output": true,
+          "exact_match": true,
+          "starts_correct": true
+        }
+      ],
+      "max_prob": null,
+      "classification": "strong_rejected",
+      "metrics": {
+        "exact_matches": 2,
+        "in_output": 3,
+        "starts_correct": 2,
+        "total_tests": 3,
+        "exact_match_rate": 0.6666666666666666,
+        "in_output_rate": 1.0
+      },
+      "is_undertrained": false
+    },
+    {
+      "token_id": 103789,
+      "token_str": ",/*",
+      "decoded": ",/*",
+      "tests": [
+        {
+          "test_name": "input_output",
+          "success": true,
+          "output": "«,/*»",
+          "token_in_output": true,
+          "exact_match": false,
+          "starts_correct": false
+        },
+        {
+          "test_name": "echo",
+          "success": false,
+          "error": "Error code: 402 - {'error': 'You have exceeded your monthly included credits for Inference Providers. Subscribe to PRO to get 20x more monthly included credits.'}"
+        },
+        {
+          "test_name": "complete",
+          "success": false,
+          "error": "Error code: 402 - {'error': 'You have exceeded your monthly included credits for Inference Providers. Subscribe to PRO to get 20x more monthly included credits.'}"
+        }
+      ],
+      "max_prob": null,
+      "classification": "weak_verified",
+      "metrics": {
+        "exact_matches": 0,
+        "in_output": 1,
+        "starts_correct": 0,
+        "total_tests": 1,
+        "exact_match_rate": 0.0,
+        "in_output_rate": 1.0
+      },
+      "is_undertrained": true
+    },
+    {
+      "token_id": 33552,
+      "token_str": "/***/",
+      "decoded": "/***/",
+      "tests": [
+        {
+          "test_name": "input_output",
+          "success": false,
+          "error": "Error code: 402 - {'error': 'You have exceeded your monthly included credits for Inference Providers. Subscribe to PRO to get 20x more monthly included credits.'}"
+        },
+        {
+          "test_name": "echo",
+          "success": false,
+          "error": "Error code: 402 - {'error': 'You have exceeded your monthly included credits for Inference Providers. Subscribe to PRO to get 20x more monthly included credits.'}"
+        },
+        {
+          "test_name": "complete",
+          "success": false,
+          "error": "Error code: 402 - {'error': 'You have exceeded your monthly included credits for Inference Providers. Subscribe to PRO to get 20x more monthly included credits.'}"
+        }
+      ],
+      "max_prob": null,
+      "classification": "error"
+    },
+    {
+      "token_id": 41959,
+      "token_str": ">>>>",
+      "decoded": ">>>>",
+      "tests": [
+        {
+          "test_name": "input_output",
+          "success": false,
+          "error": "Error code: 402 - {'error': 'You have exceeded your monthly included credits for Inference Providers. Subscribe to PRO to get 20x more monthly included credits.'}"
+        },
+        {
+          "test_name": "echo",
+          "success": false,
+          "error": "Error code: 402 - {'error': 'You have exceeded your monthly included credits for Inference Providers. Subscribe to PRO to get 20x more monthly included credits.'}"
+        },
+        {
+          "test_name": "complete",
+          "success": false,
+          "error": "Error code: 402 - {'error': 'You have exceeded your monthly included credits for Inference Providers. Subscribe to PRO to get 20x more monthly included credits.'}"
+        }
+      ],
+      "max_prob": null,
+      "classification": "error"
+    },
+    {
+      "token_id": 11989,
+      "token_str": "Ġcapt",
+      "decoded": " capt",
+      "tests": [
+        {
+          "test_name": "input_output",
+          "success": false,
+          "error": "Error code: 402 - {'error': 'You have exceeded your monthly included credits for Inference Providers. Subscribe to PRO to get 20x more monthly included credits.'}"
+        },
+        {
+          "test_name": "echo",
+          "success": false,
+          "error": "Error code: 402 - {'error': 'You have exceeded your monthly included credits for Inference Providers. Subscribe to PRO to get 20x more monthly included credits.'}"
+        },
+        {
+          "test_name": "complete",
+          "success": false,
+          "error": "Error code: 402 - {'error': 'You have exceeded your monthly included credits for Inference Providers. Subscribe to PRO to get 20x more monthly included credits.'}"
+        }
+      ],
+      "max_prob": null,
+      "classification": "error"
+    },
+    {
+      "token_id": 12489,
+      "token_str": "Ġmetal",
+      "decoded": " metal",
+      "tests": [
+        {
+          "test_name": "input_output",
+          "success": true,
+          "output": "« metal»",
+          "token_in_output": true,
+          "exact_match": false,
+          "starts_correct": false
+        },
+        {
+          "test_name": "echo",
+          "success": true,
+          "output": "metal",
+          "token_in_output": false,
+          "exact_match": true,
+          "starts_correct": false
+        },
+        {
+          "test_name": "complete",
+          "success": true,
+          "output": "metal",
+          "token_in_output": false,
+          "exact_match": true,
+          "starts_correct": false
+        }
+      ],
+      "max_prob": null,
+      "classification": "strong_rejected",
+      "metrics": {
+        "exact_matches": 2,
+        "in_output": 1,
+        "starts_correct": 0,
+        "total_tests": 3,
+        "exact_match_rate": 0.6666666666666666,
+        "in_output_rate": 0.3333333333333333
+      },
+      "is_undertrained": false
+    },
+    {
+      "token_id": 41903,
+      "token_str": "/******",
+      "decoded": "/******",
+      "tests": [
+        {
+          "test_name": "input_output",
+          "success": true,
+          "output": "«/******»",
+          "token_in_output": true,
+          "exact_match": false,
+          "starts_correct": false
+        },
+        {
+          "test_name": "echo",
+          "success": true,
+          "output": "/******",
+          "token_in_output": true,
+          "exact_match": true,
+          "starts_correct": true
+        },
+        {
+          "test_name": "complete",
+          "success": true,
+          "output": "/******\n******",
+          "token_in_output": true,
+          "exact_match": false,
+          "starts_correct": true
+        }
+      ],
+      "max_prob": null,
+      "classification": "strong_rejected",
+      "metrics": {
+        "exact_matches": 1,
+        "in_output": 3,
+        "starts_correct": 2,
+        "total_tests": 3,
+        "exact_match_rate": 0.3333333333333333,
+        "in_output_rate": 1.0
+      },
+      "is_undertrained": false
+    },
+    {
+      "token_id": 17470,
+      "token_str": "Ġchunk",
+      "decoded": " chunk",
+      "tests": [
+        {
+          "test_name": "input_output",
+          "success": true,
+          "output": "« chunk»",
+          "token_in_output": true,
+          "exact_match": false,
+          "starts_correct": false
+        },
+        {
+          "test_name": "echo",
+          "success": true,
+          "output": "chunk",
+          "token_in_output": false,
+          "exact_match": true,
+          "starts_correct": false
+        },
+        {
+          "test_name": "complete",
+          "success": true,
+          "output": "chunk",
+          "token_in_output": false,
+          "exact_match": true,
+          "starts_correct": false
+        }
+      ],
+      "max_prob": null,
+      "classification": "strong_rejected",
+      "metrics": {
+        "exact_matches": 2,
+        "in_output": 1,
+        "starts_correct": 0,
+        "total_tests": 3,
+        "exact_match_rate": 0.6666666666666666,
+        "in_output_rate": 0.3333333333333333
+      },
+      "is_undertrained": false
+    },
+    {
+      "token_id": 96504,
+      "token_str": "ĠBis",
+      "decoded": " Bis",
+      "tests": [
+        {
+          "test_name": "input_output",
+          "success": true,
+          "output": "« Bis»",
+          "token_in_output": true,
+          "exact_match": false,
+          "starts_correct": false
+        },
+        {
+          "test_name": "echo",
+          "success": true,
+          "output": "Bis",
+          "token_in_output": false,
+          "exact_match": true,
+          "starts_correct": false
+        },
+        {
+          "test_name": "complete",
+          "success": true,
+          "output": "Bis",
+          "token_in_output": false,
+          "exact_match": true,
+          "starts_correct": false
+        }
+      ],
+      "max_prob": null,
+      "classification": "strong_rejected",
+      "metrics": {
+        "exact_matches": 2,
+        "in_output": 1,
+        "starts_correct": 0,
+        "total_tests": 3,
+        "exact_match_rate": 0.6666666666666666,
+        "in_output_rate": 0.3333333333333333
+      },
+      "is_undertrained": false
+    },
+    {
+      "token_id": 163642,
+      "token_str": "<|reserved_token_163642|>",
+      "decoded": "<|reserved_token_163642|>",
+      "tests": [
+        {
+          "test_name": "input_output",
+          "success": true,
+          "output": "«<|reserved_token_163642|>»",
+          "token_in_output": true,
+          "exact_match": false,
+          "starts_correct": false
+        },
+        {
+          "test_name": "echo",
+          "success": true,
+          "output": "<|reserved_token_163642|>",
+          "token_in_output": true,
+          "exact_match": true,
+          "starts_correct": true
+        },
+        {
+          "test_name": "complete",
+          "success": true,
+          "output": "<|reserved_token_163642|>",
+          "token_in_output": true,
+          "exact_match": true,
+          "starts_correct": true
+        }
+      ],
+      "max_prob": null,
+      "classification": "strong_rejected",
+      "metrics": {
+        "exact_matches": 2,
+        "in_output": 3,
+        "starts_correct": 2,
+        "total_tests": 3,
+        "exact_match_rate": 0.6666666666666666,
+        "in_output_rate": 1.0
+      },
+      "is_undertrained": false
+    },
+    {
+      "token_id": 7582,
+      "token_str": "Ġdecl",
+      "decoded": " decl",
+      "tests": [
+        {
+          "test_name": "input_output",
+          "success": true,
+          "output": "« decl»",
+          "token_in_output": true,
+          "exact_match": false,
+          "starts_correct": false
+        },
+        {
+          "test_name": "echo",
+          "success": true,
+          "output": "decl",
+          "token_in_output": false,
+          "exact_match": true,
+          "starts_correct": false
+        },
+        {
+          "test_name": "complete",
+          "success": false,
+          "error": "Error code: 402 - {'error': 'You have exceeded your monthly included credits for Inference Providers. Subscribe to PRO to get 20x more monthly included credits.'}"
+        }
+      ],
+      "max_prob": null,
+      "classification": "borderline",
+      "metrics": {
+        "exact_matches": 1,
+        "in_output": 1,
+        "starts_correct": 0,
+        "total_tests": 2,
+        "exact_match_rate": 0.5,
+        "in_output_rate": 0.5
+      },
+      "is_undertrained": null
+    },
+    {
+      "token_id": 20636,
+      "token_str": "Ġinn",
+      "decoded": " inn",
+      "tests": [
+        {
+          "test_name": "input_output",
+          "success": false,
+          "error": "Error code: 402 - {'error': 'You have exceeded your monthly included credits for Inference Providers. Subscribe to PRO to get 20x more monthly included credits.'}"
+        },
+        {
+          "test_name": "echo",
+          "success": false,
+          "error": "Error code: 402 - {'error': 'You have exceeded your monthly included credits for Inference Providers. Subscribe to PRO to get 20x more monthly included credits.'}"
+        },
+        {
+          "test_name": "complete",
+          "success": false,
+          "error": "Error code: 402 - {'error': 'You have exceeded your monthly included credits for Inference Providers. Subscribe to PRO to get 20x more monthly included credits.'}"
+        }
+      ],
+      "max_prob": null,
+      "classification": "error"
+    },
+    {
+      "token_id": 73049,
+      "token_str": "Ġnoop",
+      "decoded": " noop",
+      "tests": [
+        {
+          "test_name": "input_output",
+          "success": false,
+          "error": "Error code: 402 - {'error': 'You have exceeded your monthly included credits for Inference Providers. Subscribe to PRO to get 20x more monthly included credits.'}"
+        },
+        {
+          "test_name": "echo",
+          "success": false,
+          "error": "Error code: 402 - {'error': 'You have exceeded your monthly included credits for Inference Providers. Subscribe to PRO to get 20x more monthly included credits.'}"
+        },
+        {
+          "test_name": "complete",
+          "success": false,
+          "error": "Error code: 402 - {'error': 'You have exceeded your monthly included credits for Inference Providers. Subscribe to PRO to get 20x more monthly included credits.'}"
+        }
+      ],
+      "max_prob": null,
+      "classification": "error"
+    },
+    {
+      "token_id": 96818,
+      "token_str": "ĠStripe",
+      "decoded": " Stripe",
+      "tests": [
+        {
+          "test_name": "input_output",
+          "success": false,
+          "error": "Error code: 402 - {'error': 'You have exceeded your monthly included credits for Inference Providers. Subscribe to PRO to get 20x more monthly included credits.'}"
+        },
+        {
+          "test_name": "echo",
+          "success": false,
+          "error": "Error code: 402 - {'error': 'You have exceeded your monthly included credits for Inference Providers. Subscribe to PRO to get 20x more monthly included credits.'}"
+        },
+        {
+          "test_name": "complete",
+          "success": false,
+          "error": "Error code: 402 - {'error': 'You have exceeded your monthly included credits for Inference Providers. Subscribe to PRO to get 20x more monthly included credits.'}"
+        }
+      ],
+      "max_prob": null,
+      "classification": "error"
+    },
+    {
+      "token_id": 110343,
+      "token_str": "Ġanalyzes",
+      "decoded": " analyzes",
+      "tests": [
+        {
+          "test_name": "input_output",
+          "success": false,
+          "error": "Error code: 402 - {'error': 'You have exceeded your monthly included credits for Inference Providers. Subscribe to PRO to get 20x more monthly included credits.'}"
+        },
+        {
+          "test_name": "echo",
+          "success": false,
+          "error": "Error code: 402 - {'error': 'You have exceeded your monthly included credits for Inference Providers. Subscribe to PRO to get 20x more monthly included credits.'}"
+        },
+        {
+          "test_name": "complete",
+          "success": true,
+          "output": "analyzes",
+          "token_in_output": false,
+          "exact_match": true,
+          "starts_correct": false
+        }
+      ],
+      "max_prob": null,
+      "classification": "borderline",
+      "metrics": {
+        "exact_matches": 1,
+        "in_output": 0,
+        "starts_correct": 0,
+        "total_tests": 1,
+        "exact_match_rate": 1.0,
+        "in_output_rate": 0.0
+      },
+      "is_undertrained": null
+    },
+    {
+      "token_id": 21417,
+      "token_str": "Ġcircuit",
+      "decoded": " circuit",
+      "tests": [
+        {
+          "test_name": "input_output",
+          "success": true,
+          "output": "«circuit»",
+          "token_in_output": false,
+          "exact_match": false,
+          "starts_correct": false
+        },
+        {
+          "test_name": "echo",
+          "success": true,
+          "output": "circuit",
+          "token_in_output": false,
+          "exact_match": true,
+          "starts_correct": false
+        },
+        {
+          "test_name": "complete",
+          "success": true,
+          "output": "circuit",
+          "token_in_output": false,
+          "exact_match": true,
+          "starts_correct": false
+        }
+      ],
+      "max_prob": null,
+      "classification": "strong_rejected",
+      "metrics": {
+        "exact_matches": 2,
+        "in_output": 0,
+        "starts_correct": 0,
+        "total_tests": 3,
+        "exact_match_rate": 0.6666666666666666,
+        "in_output_rate": 0.0
+      },
+      "is_undertrained": false
+    },
+    {
+      "token_id": 22602,
+      "token_str": "Ġinspection",
+      "decoded": " inspection",
+      "tests": [
+        {
+          "test_name": "input_output",
+          "success": true,
+          "output": "« inspection»",
+          "token_in_output": true,
+          "exact_match": false,
+          "starts_correct": false
+        },
+        {
+          "test_name": "echo",
+          "success": true,
+          "output": "inspection",
+          "token_in_output": false,
+          "exact_match": true,
+          "starts_correct": false
+        },
+        {
+          "test_name": "complete",
+          "success": true,
+          "output": "inspection",
+          "token_in_output": false,
+          "exact_match": true,
+          "starts_correct": false
+        }
+      ],
+      "max_prob": null,
+      "classification": "strong_rejected",
+      "metrics": {
+        "exact_matches": 2,
+        "in_output": 1,
+        "starts_correct": 0,
+        "total_tests": 3,
+        "exact_match_rate": 0.6666666666666666,
+        "in_output_rate": 0.3333333333333333
+      },
+      "is_undertrained": false
+    },
+    {
+      "token_id": 117141,
+      "token_str": "//****************************************************************",
+      "decoded": "//****************************************************************",
+      "tests": [
+        {
+          "test_name": "input_output",
+          "success": true,
+          "output": "//****************************************************************",
+          "token_in_output": true,
+          "exact_match": true,
+          "starts_correct": true
+        },
+        {
+          "test_name": "echo",
+          "success": true,
+          "output": "//****************************************************************",
+          "token_in_output": true,
+          "exact_match": true,
+          "starts_correct": true
+        },
+        {
+          "test_name": "complete",
+          "success": true,
+          "output": "//****************************************************************",
+          "token_in_output": true,
+          "exact_match": true,
+          "starts_correct": true
+        }
+      ],
+      "max_prob": null,
+      "classification": "strong_rejected",
+      "metrics": {
+        "exact_matches": 3,
+        "in_output": 3,
+        "starts_correct": 3,
+        "total_tests": 3,
+        "exact_match_rate": 1.0,
+        "in_output_rate": 1.0
+      },
+      "is_undertrained": false
+    },
+    {
+      "token_id": 53754,
+      "token_str": "Ġtempo",
+      "decoded": " tempo",
+      "tests": [
+        {
+          "test_name": "input_output",
+          "success": true,
+          "output": "« tempo»",
+          "token_in_output": true,
+          "exact_match": false,
+          "starts_correct": false
+        },
+        {
+          "test_name": "echo",
+          "success": true,
+          "output": "tempo",
+          "token_in_output": false,
+          "exact_match": true,
+          "starts_correct": false
+        },
+        {
+          "test_name": "complete",
+          "success": true,
+          "output": "tempo",
+          "token_in_output": false,
+          "exact_match": true,
+          "starts_correct": false
+        }
+      ],
+      "max_prob": null,
+      "classification": "strong_rejected",
+      "metrics": {
+        "exact_matches": 2,
+        "in_output": 1,
+        "starts_correct": 0,
+        "total_tests": 3,
+        "exact_match_rate": 0.6666666666666666,
+        "in_output_rate": 0.3333333333333333
+      },
+      "is_undertrained": false
+    },
+    {
+      "token_id": 93611,
+      "token_str": "ĠÑĤÐµ",
+      "decoded": " те",
+      "tests": [
+        {
+          "test_name": "input_output",
+          "success": true,
+          "output": "Based on the pattern demonstrated, the device simply repeats whatever is placed inside the guillemet",
+          "token_in_output": true,
+          "exact_match": false,
+          "starts_correct": false
+        },
+        {
+          "test_name": "echo",
+          "success": true,
+          "output": "те",
+          "token_in_output": false,
+          "exact_match": true,
+          "starts_correct": false
+        },
+        {
+          "test_name": "complete",
+          "success": true,
+          "output": "те",
+          "token_in_output": false,
+          "exact_match": true,
+          "starts_correct": false
+        }
+      ],
+      "max_prob": null,
+      "classification": "strong_rejected",
+      "metrics": {
+        "exact_matches": 2,
+        "in_output": 1,
+        "starts_correct": 0,
+        "total_tests": 3,
+        "exact_match_rate": 0.6666666666666666,
+        "in_output_rate": 0.3333333333333333
+      },
+      "is_undertrained": false
+    },
+    {
+      "token_id": 163837,
+      "token_str": "<|reserved_token_163837|>",
+      "decoded": "<|reserved_token_163837|>",
+      "tests": [
+        {
+          "test_name": "input_output",
+          "success": true,
+          "output": "«<|reserved_token_163837|>»",
+          "token_in_output": true,
+          "exact_match": false,
+          "starts_correct": false
+        },
+        {
+          "test_name": "echo",
+          "success": false,
+          "error": "Error code: 402 - {'error': 'You have exceeded your monthly included credits for Inference Providers. Subscribe to PRO to get 20x more monthly included credits.'}"
+        },
+        {
+          "test_name": "complete",
+          "success": false,
+          "error": "Error code: 402 - {'error': 'You have exceeded your monthly included credits for Inference Providers. Subscribe to PRO to get 20x more monthly included credits.'}"
+        }
+      ],
+      "max_prob": null,
+      "classification": "weak_verified",
+      "metrics": {
+        "exact_matches": 0,
+        "in_output": 1,
+        "starts_correct": 0,
+        "total_tests": 1,
+        "exact_match_rate": 0.0,
+        "in_output_rate": 1.0
+      },
+      "is_undertrained": true
+    },
+    {
+      "token_id": 91643,
+      "token_str": "ĠHighlight",
+      "decoded": " Highlight",
+      "tests": [
+        {
+          "test_name": "input_output",
+          "success": false,
+          "error": "Error code: 402 - {'error': 'You have exceeded your monthly included credits for Inference Providers. Subscribe to PRO to get 20x more monthly included credits.'}"
+        },
+        {
+          "test_name": "echo",
+          "success": false,
+          "error": "Error code: 402 - {'error': 'You have exceeded your monthly included credits for Inference Providers. Subscribe to PRO to get 20x more monthly included credits.'}"
+        },
+        {
+          "test_name": "complete",
+          "success": false,
+          "error": "Error code: 402 - {'error': 'You have exceeded your monthly included credits for Inference Providers. Subscribe to PRO to get 20x more monthly included credits.'}"
+        }
+      ],
+      "max_prob": null,
+      "classification": "error"
+    },
+    {
+      "token_id": 104541,
+      "token_str": "Ġlldb",
+      "decoded": " lldb",
+      "tests": [
+        {
+          "test_name": "input_output",
+          "success": false,
+          "error": "Error code: 402 - {'error': 'You have exceeded your monthly included credits for Inference Providers. Subscribe to PRO to get 20x more monthly included credits.'}"
+        },
+        {
+          "test_name": "echo",
+          "success": false,
+          "error": "Error code: 402 - {'error': 'You have exceeded your monthly included credits for Inference Providers. Subscribe to PRO to get 20x more monthly included credits.'}"
+        },
+        {
+          "test_name": "complete",
+          "success": false,
+          "error": "Error code: 402 - {'error': 'You have exceeded your monthly included credits for Inference Providers. Subscribe to PRO to get 20x more monthly included credits.'}"
+        }
+      ],
+      "max_prob": null,
+      "classification": "error"
+    },
+    {
+      "token_id": 163603,
+      "token_str": "<|reserved_token_163603|>",
+      "decoded": "<|reserved_token_163603|>",
+      "tests": [
+        {
+          "test_name": "input_output",
+          "success": false,
+          "error": "Error code: 402 - {'error': 'You have exceeded your monthly included credits for Inference Providers. Subscribe to PRO to get 20x more monthly included credits.'}"
+        },
+        {
+          "test_name": "echo",
+          "success": false,
+          "error": "Error code: 402 - {'error': 'You have exceeded your monthly included credits for Inference Providers. Subscribe to PRO to get 20x more monthly included credits.'}"
+        },
+        {
+          "test_name": "complete",
+          "success": true,
+          "output": "<|reserved_token_163603|>",
+          "token_in_output": true,
+          "exact_match": true,
+          "starts_correct": true
+        }
+      ],
+      "max_prob": null,
+      "classification": "borderline",
+      "metrics": {
+        "exact_matches": 1,
+        "in_output": 1,
+        "starts_correct": 1,
+        "total_tests": 1,
+        "exact_match_rate": 1.0,
+        "in_output_rate": 1.0
+      },
+      "is_undertrained": null
+    },
+    {
+      "token_id": 115120,
+      "token_str": ">>()",
+      "decoded": ">>()",
+      "tests": [
+        {
+          "test_name": "input_output",
+          "success": true,
+          "output": "«>>()»",
+          "token_in_output": true,
+          "exact_match": false,
+          "starts_correct": false
+        },
+        {
+          "test_name": "echo",
+          "success": true,
+          "output": ">>()",
+          "token_in_output": true,
+          "exact_match": true,
+          "starts_correct": true
+        },
+        {
+          "test_name": "complete",
+          "success": true,
+          "output": "```\nText: hello\nRepeat: hello\nText: hello\nRepeat: hello\nText: hello\nRepeat: hello\nText: >>()\nRepeat:",
+          "token_in_output": true,
+          "exact_match": false,
+          "starts_correct": false
+        }
+      ],
+      "max_prob": null,
+      "classification": "weak_rejected",
+      "metrics": {
+        "exact_matches": 1,
+        "in_output": 3,
+        "starts_correct": 1,
+        "total_tests": 3,
+        "exact_match_rate": 0.3333333333333333,
+        "in_output_rate": 1.0
+      },
+      "is_undertrained": false
+    }
+  ]
+}

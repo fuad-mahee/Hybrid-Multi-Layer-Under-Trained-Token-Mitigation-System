@@ -1,0 +1,36 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.venv/
+venv/
+*.egg-info/
+dist/
+build/
+.eggs/
+
+# Large model files (upload to HuggingFace instead)
+*.safetensors
+*.pt
+*.bin
+*.ckpt
+checkpoints/
+
+# Large training data
+data/openwebtext/
+data/tokenized/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+
+# Environment variables
+.env

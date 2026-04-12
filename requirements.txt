@@ -1,0 +1,14 @@
+# Core runtime dependencies (excluding torch; see README for Windows guidance)
+transformers>=4.44
+accelerate>=0.33
+huggingface_hub>=0.24
+numpy>=1.24
+pandas>=2.0
+matplotlib>=3.8
+scipy>=1.11
+# GlitchMiner (vendored in ./glitchminer_lib) needs these
+tqdm>=4.66
+# bitsandbytes is only required for GlitchMiner's int4 quantization path (Linux/CUDA only)
+# bitsandbytes>=0.43 ; platform_system != "Windows"
+# For local dev
+pytest>=7.0
