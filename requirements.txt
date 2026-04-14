@@ -10,5 +10,7 @@ scipy>=1.11
 tqdm>=4.66
 # bitsandbytes is only required for GlitchMiner's int4 quantization path (Linux/CUDA only)
 # bitsandbytes>=0.43 ; platform_system != "Windows"
+# Layer 3 persistent registry (install on research PC)
+# rocksdict>=0.3
 # For local dev
 pytest>=7.0
