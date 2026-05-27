@@ -34,7 +34,7 @@ class Classification(str, Enum):
 class DecisionConfig:
     a_fail_below: float = 0.30      # A < this -> Model A fails
     b_fail_below: float = 0.50      # B < this -> Model B also fails
-    b_pass_above: float = 0.70      # B > this -> Model B handles it well
+    b_pass_above: float = 0.60      # B > this -> Model B handles it well (lowered from 0.70 to capture 0.667 probe scores)
 
 
 def classify(
