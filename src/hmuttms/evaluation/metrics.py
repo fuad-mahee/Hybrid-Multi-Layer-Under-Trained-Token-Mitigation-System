@@ -106,31 +106,18 @@ def detection_improvement(
 # ============================================================= mitigation
 @dataclass
 class MitigationMetrics:
-    """Success/failure counts across the four mitigation tracks."""
+    """Success/failure counts for Track 3 (Embedding Injection)."""
 
     total_flagged: int = 0
-    substitution_attempts: int = 0
-    substitution_success: int = 0
-    activation_attempts: int = 0
-    activation_success: int = 0
     embedding_attempts: int = 0
     embedding_success: int = 0
-    block_attempts: int = 0
-    block_success: int = 0
-    escalations: int = 0
     quality_pass: int = 0
     quality_fail: int = 0
     quality_na: int = 0
 
     @property
     def overall_success_rate(self) -> float:
-        total = (
-            self.substitution_success
-            + self.activation_success
-            + self.embedding_success
-            + self.block_success
-        )
-        return total / max(self.total_flagged, 1)
+        return self.embedding_success / max(self.total_flagged, 1)
 
     @property
     def quality_pass_rate(self) -> Optional[float]:
@@ -140,28 +127,12 @@ class MitigationMetrics:
         return self.quality_pass / checked
 
     def per_track(self) -> dict:
-        def _rate(s, a):
-            return round(s / max(a, 1), 4)
+        rate = round(self.embedding_success / max(self.embedding_attempts, 1), 4)
         return {
-            "substitution": {
-                "attempts": self.substitution_attempts,
-                "successes": self.substitution_success,
-                "rate": _rate(self.substitution_success, self.substitution_attempts),
-            },
-            "activation_repair": {
-                "attempts": self.activation_attempts,
-                "successes": self.activation_success,
-                "rate": _rate(self.activation_success, self.activation_attempts),
-            },
             "embedding_injection": {
                 "attempts": self.embedding_attempts,
                 "successes": self.embedding_success,
-                "rate": _rate(self.embedding_success, self.embedding_attempts),
-            },
-            "hard_block": {
-                "attempts": self.block_attempts,
-                "successes": self.block_success,
-                "rate": _rate(self.block_success, self.block_attempts),
+                "rate": rate,
             },
         }
 
@@ -174,7 +145,6 @@ class MitigationMetrics:
                 if self.quality_pass_rate is not None
                 else None
             ),
-            "escalations": self.escalations,
             "per_track": self.per_track(),
         }
 
@@ -186,12 +156,6 @@ def compute_mitigation_metrics(audit_records: Sequence[dict]) -> MitigationMetri
     serialised via ``to_dict()``.
     """
     m = MitigationMetrics()
-    _TRACK_MAP = {
-        "track1_substitution":        ("substitution_attempts", "substitution_success"),
-        "track2_activation_repair":   ("activation_attempts",   "activation_success"),
-        "track3_embedding_injection": ("embedding_attempts",    "embedding_success"),
-        "track4_hard_block":          ("block_attempts",        "block_success"),
-    }
     seen_flagged: set = set()
     for rec in audit_records:
         action = rec.get("action", "")
@@ -201,15 +165,11 @@ def compute_mitigation_metrics(audit_records: Sequence[dict]) -> MitigationMetri
         if tid not in seen_flagged:
             seen_flagged.add(tid)
             m.total_flagged += 1
-        if action == "escalated":
-            m.escalations += 1
-            continue
         track = rec.get("track") or ""
-        if track in _TRACK_MAP:
-            att_key, suc_key = _TRACK_MAP[track]
-            setattr(m, att_key, getattr(m, att_key) + 1)
+        if track == "track3_embedding_injection":
+            m.embedding_attempts += 1
             if rec.get("success"):
-                setattr(m, suc_key, getattr(m, suc_key) + 1)
+                m.embedding_success += 1
     return m
 
 

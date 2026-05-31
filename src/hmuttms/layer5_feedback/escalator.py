@@ -1,17 +1,11 @@
-"""Escalator — update registry counters and promote tokens up the track ladder.
+"""Escalator — update registry counters for Track 3 mitigation results.
 
 Reads an event-log JSONL (written by :class:`RuntimeMonitor`) and:
 
 1. Increments ``metadata.mitigation_attempts`` / ``mitigation_successes``
    for every audit record, tagging ``last_strategy`` with the track used.
-2. When a track's per-token success rate falls below
-   ``EscalationConfig.promote_below`` (after ``min_attempts``), writes a
-   :class:`FallbackRule` that steers the severity router to the *next*
-   track on the ladder — matching the PDF's
-
-       substitution fails -> activation repair
-       activation fails   -> hard blocking
-
+2. If Track 3's success rate falls below ``EscalationConfig.promote_below``
+   (after ``min_attempts``), logs a warning rule in the fallback_rules DB.
 3. Optionally prunes rules once a token's success rate recovers above
    ``restore_above``.
 
@@ -31,12 +25,8 @@ from ..layer3_registry.schemas import FallbackRule, MetadataEntry
 
 
 # ================================================================= config
-_NEXT_TRACK = {
-    "track1_substitution":        "track2_activation_repair",
-    "track2_activation_repair":   "track3_embedding_injection",
-    "track3_embedding_injection": "track4_hard_block",
-    "track4_hard_block":          "track4_hard_block",
-}
+# Only Track 3 is active; no escalation ladder needed.
+_ACTIVE_TRACK = "track3_embedding_injection"
 
 
 @dataclass
@@ -151,17 +141,16 @@ class Escalator:
             rate = meta.mitigation_successes / max(meta.mitigation_attempts, 1)
             rule = self.registry.get_fallback(tid)
 
-            if rate < self.cfg.promote_below and meta.last_strategy:
-                next_track = _NEXT_TRACK.get(meta.last_strategy, "track4_hard_block")
-                if rule and rule.track == next_track:
+            if rate < self.cfg.promote_below and meta.last_strategy == _ACTIVE_TRACK:
+                # Track 3 performing poorly — record a warning rule.
+                if rule and rule.track == _ACTIVE_TRACK:
                     continue
                 new_rule = FallbackRule(
                     token_id=tid,
                     priority=100,
-                    track=next_track,
+                    track=_ACTIVE_TRACK,
                     description=(
-                        f"auto-promoted from {meta.last_strategy} "
-                        f"(success_rate={rate:.2f})"
+                        f"track3 low success_rate={rate:.2f} — flagged for review"
                     ),
                     params={"success_rate": rate},
                 )
@@ -169,9 +158,9 @@ class Escalator:
                 promotions.append(
                     {
                         "token_id": tid,
-                        "from": meta.last_strategy,
-                        "to": next_track,
+                        "track": _ACTIVE_TRACK,
                         "success_rate": rate,
+                        "note": "low_success_flagged",
                     }
                 )
             elif rate > self.cfg.restore_above and rule is not None:

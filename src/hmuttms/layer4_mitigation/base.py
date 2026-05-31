@@ -66,9 +66,7 @@ class MitigationResult:
     original_token_id: int
     action: MitigationAction
     track: Optional[str] = None
-    replacement_token_ids: Optional[Sequence[int]] = None
     replacement_embedding: Optional[Sequence[float]] = None
-    activation_patches: Optional[dict[str, Any]] = None
     success: bool = True
     reason: Optional[str] = None
     details: dict[str, Any] = field(default_factory=dict)
@@ -78,17 +76,11 @@ class MitigationResult:
             "original_token_id": int(self.original_token_id),
             "action": self.action.value,
             "track": self.track,
-            "replacement_token_ids": (
-                list(self.replacement_token_ids)
-                if self.replacement_token_ids is not None
-                else None
-            ),
             "replacement_embedding": (
                 list(self.replacement_embedding)
                 if self.replacement_embedding is not None
                 else None
             ),
-            "activation_patches": self.activation_patches,
             "success": bool(self.success),
             "reason": self.reason,
             "details": self.details,

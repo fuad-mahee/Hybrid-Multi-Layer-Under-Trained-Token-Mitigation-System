@@ -142,5 +142,5 @@ class MitigatingTokenizer:
         """Return the most-recent activation/embedding patches."""
         log = object.__getattribute__(self, "audit_log")
         if not log:
-            return {"activation_patches": [], "embedding_patches": []}
+            return {"embedding_patches": []}
         return log[-1].get("extras", {})
