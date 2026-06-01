@@ -1,25 +1,21 @@
-"""Layer 3 — Persistent Lookup Table System (RocksDB-based token registry).
+"""Layer 3 — Simple JSON-dictionary token registry.
 
-On-disk layout (per the HMUTTMS flowchart)::
+On-disk layout::
 
     data/mitigation_system/
-      ├── bloom_filter.bin           # built by Layer 1
-      └── rocksdb_storage/
-          ├── blacklist_tokens/      # confirmed under-trained (both models fail)
-          ├── substitution_map/      # model-specific weaknesses + replacements
-          ├── metadata/              # severity, frequency, embeddings, stats
-          └── fallback_rules/        # context-aware handling strategies
+      ├── bloom_filter.bin           # built by Layer 1 (optional fast gate)
+      └── registry/
+          └── registry.json          # the whole registry, four sections:
+                                      #   blacklist_tokens, substitution_map,
+                                      #   metadata, fallback_rules
 
-The storage layer is pluggable (see :mod:`.kv_store`):
-
-* ``RocksDictBackend`` — production backend using ``rocksdict`` (install with
-  ``pip install rocksdict`` on the research PC).
-* ``JsonDirBackend``   — dependency-free fallback that writes one JSON file
-  per key. Slow, but lets you develop and unit-test end-to-end on a laptop
-  without building the native RocksDB wheel.
+The original HMUTTMS flowchart specified RocksDB for ~8 µs/lookup at
+production scale. For a thesis verification that processes a fixed token
+set once, a plain Python dict persisted to a single human-readable JSON
+file is equivalent and far easier to inspect/defend — so that is what
+:class:`TokenRegistry` now uses.
 """
-from .kv_store import BaseKVBackend, JsonDirBackend, RocksDictBackend, open_backend
-from .registry import TokenRegistry
+from .registry import DEFAULT_ROOT, SECTIONS, TokenRegistry
 from .schemas import (
     BlacklistEntry,
     FallbackRule,
@@ -28,13 +24,11 @@ from .schemas import (
 )
 
 __all__ = [
-    "BaseKVBackend",
     "BlacklistEntry",
+    "DEFAULT_ROOT",
     "FallbackRule",
-    "JsonDirBackend",
     "MetadataEntry",
-    "RocksDictBackend",
+    "SECTIONS",
     "SubstitutionEntry",
     "TokenRegistry",
-    "open_backend",
 ]

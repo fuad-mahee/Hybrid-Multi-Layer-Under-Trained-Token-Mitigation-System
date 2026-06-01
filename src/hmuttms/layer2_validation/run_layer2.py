@@ -33,7 +33,7 @@ import argparse
 import json
 import sys
 from pathlib import Path
-from typing import Iterable
+from typing import Iterable, Optional
 
 from .decision_matrix import (
     Classification,
@@ -186,6 +186,13 @@ def main(argv: list[str] | None = None) -> int:
             cls = classify(a_score, ens.score, cfg)
             counts[cls.value] += 1
 
+            # Collect the first non-None embedding from any backend probe.
+            model_b_embedding: Optional[list[float]] = None
+            for p in probes:
+                if p.embedding is not None:
+                    model_b_embedding = p.embedding
+                    break
+
             record = {
                 "token_id": int(cand["token_id"]),
                 "token_str": cand.get("token_str") or ens.token_str,
@@ -197,6 +204,7 @@ def main(argv: list[str] | None = None) -> int:
                 "probes": ens.per_backend,
                 "layer1_confidence": float(cand.get("confidence", 0.0)),
                 "layer1_sources": cand.get("sources", []),
+                "model_b_embedding": model_b_embedding,
             }
             fout.write(json.dumps(record, ensure_ascii=False) + "\n")
             written += 1

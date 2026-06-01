@@ -44,6 +44,7 @@ class TokenProbe:
     verdict: str                        # "undertrained" | "handled" | "inconclusive"
     backend: str                        # identifier for which Model-B produced this
     details: dict = field(default_factory=dict)
+    embedding: Optional[list[float]] = None   # Model B embedding vector for this token
 
 
 # ------------------------------------------------------------------- base API
@@ -216,6 +217,23 @@ class LocalHFTester(BaseModelBTester):
         )
         self._model.eval()
 
+    # ------------------------------------------------------------ embedding
+    def get_embedding(self, token_id: int) -> Optional[list[float]]:
+        """Extract Model B's embedding vector for token_id from its embedding table."""
+        self._ensure_loaded()
+        try:
+            import torch
+
+            embed = self._model.get_input_embeddings()
+            tid = torch.tensor(
+                [int(token_id)], device=embed.weight.device, dtype=torch.long
+            )
+            with torch.no_grad():
+                vec = embed(tid)
+            return vec[0].detach().float().cpu().tolist()
+        except Exception:
+            return None
+
     # ---------------------------------------------------------------- probe
     def probe(self, token_id: int, token_str: Optional[str] = None) -> TokenProbe:
         self._ensure_loaded()
@@ -266,4 +284,5 @@ class LocalHFTester(BaseModelBTester):
             verdict=verdict,
             backend=self.name,
             details={"per_test": per_test, "passes": passes, "total": total},
+            embedding=self.get_embedding(token_id),
         )

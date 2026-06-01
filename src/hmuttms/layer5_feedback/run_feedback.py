@@ -41,7 +41,7 @@ def _cmd_escalate(args: argparse.Namespace) -> int:
         restore_above=args.restore_above,
         min_attempts=args.min_attempts,
     )
-    with TokenRegistry(args.registry_root, backend_kind=args.backend) as reg:
+    with TokenRegistry(args.registry_root) as reg:
         esc = Escalator(reg, config=cfg, cursor_path=args.cursor)
         summary = esc.process_log(args.event_log)
     print(json.dumps(summary, indent=2))
@@ -75,7 +75,7 @@ def _cmd_retest(args: argparse.Namespace) -> int:
         )
         return 2
 
-    with TokenRegistry(args.registry_root, backend_kind=args.backend) as reg:
+    with TokenRegistry(args.registry_root) as reg:
         sched = RetestScheduler(reg, testers=testers)
         report = sched.run(
             refresh_bloom=not args.skip_bloom_refresh,
@@ -89,11 +89,6 @@ def _cmd_retest(args: argparse.Namespace) -> int:
 def _make_parser() -> argparse.ArgumentParser:
     p = argparse.ArgumentParser(description="HMUTTMS Layer 5 — feedback loop")
     p.add_argument("--registry-root", default=str(DEFAULT_ROOT))
-    p.add_argument(
-        "--backend",
-        choices=["auto", "rocksdict", "jsondir"],
-        default="auto",
-    )
     sub = p.add_subparsers(dest="cmd", required=True)
 
     # escalate

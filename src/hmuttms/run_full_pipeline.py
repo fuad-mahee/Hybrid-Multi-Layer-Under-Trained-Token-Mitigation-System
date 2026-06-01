@@ -39,7 +39,7 @@ from pathlib import Path
 
 # Default paths (can be overridden via flags).
 _DEFAULT_BLOOM     = "data/mitigation_system/bloom_filter.bin"
-_DEFAULT_REG_ROOT  = "data/mitigation_system/rocksdb_storage"
+_DEFAULT_REG_ROOT  = "data/mitigation_system/registry"
 _DEFAULT_L1_OUT    = "data/layer1_candidates.jsonl"
 _DEFAULT_L2_OUT    = "data/layer2_classified.jsonl"
 _DEFAULT_EVENT_LOG = "data/mitigation_system/feedback/events.jsonl"
@@ -95,7 +95,6 @@ def _run_offline(args: argparse.Namespace) -> int:
         + ["hmuttms.layer3_registry.run_populate"]
         + ["--input",        args.l2_output]
         + ["--registry-root", args.registry_root]
-        + ["--backend",      args.backend]
         + ["--bloom-output", args.bloom_output]
     )
     if args.include_review:
@@ -140,7 +139,6 @@ def _run_runtime(args: argparse.Namespace) -> int:
         device=args.device,
         dtype=args.dtype,
         trust_remote_code=args.trust_remote_code,
-        backend_kind=args.backend,
         monitor_log=args.event_log,
         quality_checker=QualityChecker(),
         max_new_tokens=args.max_new_tokens,
@@ -182,8 +180,6 @@ def _make_parser() -> argparse.ArgumentParser:
         sp.add_argument("--model-id", required=True, help="Model A (target) HF id")
         sp.add_argument("--bloom-output",   default=_DEFAULT_BLOOM)
         sp.add_argument("--registry-root",  default=_DEFAULT_REG_ROOT)
-        sp.add_argument("--backend",
-                        choices=["auto", "rocksdict", "jsondir"], default="auto")
         sp.add_argument("--device",    default="auto")
         sp.add_argument("--dtype",     default="bfloat16",
                         choices=["bfloat16", "float16", "float32"])

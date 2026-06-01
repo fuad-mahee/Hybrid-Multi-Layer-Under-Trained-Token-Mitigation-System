@@ -105,6 +105,10 @@ def populate_from_layer2(
 
         elif cls == "SUBSTITUTABLE":
             strategy_dict = row.get("replacement_strategy") or {}
+            # Inject Model B's embedding into the strategy so Track 3 can use it.
+            if row.get("model_b_embedding") and not strategy_dict.get("fallback_embedding"):
+                strategy_dict = dict(strategy_dict)
+                strategy_dict["fallback_embedding"] = row["model_b_embedding"]
             registry.put_substitution(
                 SubstitutionEntry(
                     token_id=tid,
@@ -135,6 +139,7 @@ def populate_from_layer2(
                 severity=severity,
                 frequency=1,
                 observed_in_models=backends,
+                embedding=row.get("model_b_embedding"),
             )
         )
         counts["metadata_written"] += 1

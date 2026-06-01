@@ -13,7 +13,7 @@ Usage::
 
     pipeline = MitigationPipeline(
         bloom=BloomGate.load("data/mitigation_system/bloom_filter.bin"),
-        registry=TokenRegistry("data/mitigation_system/rocksdb_storage"),
+        registry=TokenRegistry("data/mitigation_system/registry"),
         model=hf_model,
     )
     new_ids, audit, extras = pipeline.mitigate(token_ids)

@@ -161,7 +161,7 @@ def _cmd_latency(args: argparse.Namespace) -> int:
 
     bloom = BloomGate.load(bloom_path)
 
-    with TokenRegistry(args.registry_root, backend_kind=args.backend) as registry:
+    with TokenRegistry(args.registry_root) as registry:
         # Build a minimal no-model pipeline for timing.
         pipeline = MitigationPipeline(bloom=bloom, registry=registry)
 
@@ -303,7 +303,7 @@ def _cmd_full(args: argparse.Namespace) -> int:
     bloom_path = Path(args.bloom_path)
     if bloom_path.exists():
         bloom = BloomGate.load(bloom_path)
-        with TokenRegistry(args.registry_root, backend_kind=args.backend) as registry:
+        with TokenRegistry(args.registry_root) as registry:
             pipeline = MitigationPipeline(bloom=bloom, registry=registry)
             l1_path = Path(args.layer1_jsonl)
             token_ids = (
@@ -353,9 +353,7 @@ def _add_common(p: argparse.ArgumentParser) -> None:
 
 def _add_registry_args(p: argparse.ArgumentParser) -> None:
     p.add_argument("--registry-root",
-                   default="data/mitigation_system/rocksdb_storage")
-    p.add_argument("--backend",
-                   choices=["auto", "rocksdict", "jsondir"], default="auto")
+                   default="data/mitigation_system/registry")
     p.add_argument("--bloom-path",
                    default="data/mitigation_system/bloom_filter.bin")
 

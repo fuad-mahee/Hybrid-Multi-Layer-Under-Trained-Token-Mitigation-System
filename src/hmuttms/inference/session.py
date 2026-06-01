@@ -75,7 +75,6 @@ class InferenceSession:
         device: str = "auto",
         dtype: str = "bfloat16",
         trust_remote_code: bool = False,
-        backend_kind: str = "auto",
         router_config: Optional[RouterConfig] = None,
         monitor_log: Optional[str | Path] = None,
         quality_checker: Optional[QualityChecker] = None,
@@ -107,7 +106,7 @@ class InferenceSession:
         if bp.exists():
             bloom = BloomGate.load(bp)
 
-        registry = TokenRegistry(registry_root, backend_kind=backend_kind)
+        registry = TokenRegistry(registry_root)
         pipeline = MitigationPipeline(
             bloom=bloom,
             registry=registry,

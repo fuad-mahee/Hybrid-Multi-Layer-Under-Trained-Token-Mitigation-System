@@ -165,7 +165,7 @@ class Escalator:
                 )
             elif rate > self.cfg.restore_above and rule is not None:
                 # Recovered: drop the override so the router returns to policy.
-                self.registry._open["fallback_rules"].delete(str(tid))  # noqa: SLF001
+                self.registry.delete_fallback(tid)
                 restorations.append({"token_id": tid, "success_rate": rate})
 
         self._write_cursor(last_offset)

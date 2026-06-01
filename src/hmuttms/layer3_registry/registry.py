@@ -1,23 +1,34 @@
-"""``TokenRegistry`` — unified accessor over all Layer-3 sub-DBs.
+"""``TokenRegistry`` — simple JSON-dictionary token registry.
 
-Wraps the four RocksDB-backed stores described in the HMUTTMS flowchart:
+Replaces the RocksDB backend with a single, human-readable JSON file. For
+a thesis verification that processes a fixed token set once, a plain
+in-memory dict persisted to JSON does everything RocksDB did — and the
+committee can open the file and read it directly.
 
-* ``blacklist_tokens``   — :class:`BlacklistEntry`
-* ``substitution_map``   — :class:`SubstitutionEntry`
-* ``metadata``           — :class:`MetadataEntry`
-* ``fallback_rules``     — :class:`FallbackRule`
+On-disk layout::
 
-Keys are always the **string form of ``token_id``** so the same registry
-can be used from Python, shell inspection, and downstream C++ runtime
-code without key-encoding drift.
+    <registry_root>/registry.json
+    {
+      "blacklist_tokens": { "12345": {...BlacklistEntry...}, ... },
+      "substitution_map": { "67890": {...SubstitutionEntry...}, ... },
+      "metadata":         { "12345": {...MetadataEntry...}, ... },
+      "fallback_rules":   { "12345": {...FallbackRule...}, ... }
+    }
+
+Keys are always the **string form of ``token_id``**. The whole file is
+loaded into memory on open and written back on ``save()`` / context exit.
+
+The public method names match the previous RocksDB-backed registry, so
+the rest of the pipeline (populate, Track 3, session, feedback) is
+unchanged.
 """
 from __future__ import annotations
 
+import json
 from contextlib import AbstractContextManager
 from pathlib import Path
 from typing import Iterator, Optional
 
-from .kv_store import BaseKVBackend, open_backend
 from .schemas import (
     BlacklistEntry,
     FallbackRule,
@@ -25,33 +36,51 @@ from .schemas import (
     SubstitutionEntry,
 )
 
-DEFAULT_ROOT = Path("data/mitigation_system/rocksdb_storage")
-SUBDIRS = ("blacklist_tokens", "substitution_map", "metadata", "fallback_rules")
+DEFAULT_ROOT = Path("data/mitigation_system/registry")
+SECTIONS = ("blacklist_tokens", "substitution_map", "metadata", "fallback_rules")
 
 
 class TokenRegistry(AbstractContextManager):
-    """Typed facade over the four Layer-3 KV stores."""
+    """Typed facade over a single JSON dictionary file."""
 
     def __init__(
         self,
         root: str | Path = DEFAULT_ROOT,
-        backend_kind: str = "auto",
+        backend_kind: str | None = None,  # accepted & ignored (CLI compat)
     ):
-        self.root = Path(root)
-        self.root.mkdir(parents=True, exist_ok=True)
-        self.backend_kind = backend_kind
-        self._open: dict[str, BaseKVBackend] = {
-            name: open_backend(self.root / name, kind=backend_kind)
-            for name in SUBDIRS
-        }
+        root = Path(root)
+        # Accept either a directory (→ registry.json inside) or a .json path.
+        if root.suffix == ".json":
+            self.path = root
+        else:
+            self.path = root / "registry.json"
+        self.path.parent.mkdir(parents=True, exist_ok=True)
+        self.root = self.path.parent
+
+        self._data: dict[str, dict[str, dict]] = {s: {} for s in SECTIONS}
+        if self.path.exists():
+            loaded = json.loads(self.path.read_text(encoding="utf-8"))
+            for s in SECTIONS:
+                self._data[s] = {
+                    str(k): v for k, v in (loaded.get(s) or {}).items()
+                }
+        self._dirty = False
 
     # ---------------------------------------------------------------- dunder
-    def __exit__(self, exc_type, exc, tb) -> None:  # noqa: D401
+    def __exit__(self, exc_type, exc, tb) -> None:
         self.close()
 
     def close(self) -> None:
-        for b in self._open.values():
-            b.close()
+        if self._dirty:
+            self.save()
+
+    def save(self) -> Path:
+        self.path.write_text(
+            json.dumps(self._data, ensure_ascii=False, indent=2),
+            encoding="utf-8",
+        )
+        self._dirty = False
+        return self.path
 
     # ------------------------------------------------------ key/value helper
     @staticmethod
@@ -60,40 +89,45 @@ class TokenRegistry(AbstractContextManager):
 
     # ============================================================ blacklist
     def put_blacklist(self, entry: BlacklistEntry) -> None:
-        self._open["blacklist_tokens"].put(self._k(entry.token_id), entry.to_dict())
+        self._data["blacklist_tokens"][self._k(entry.token_id)] = entry.to_dict()
+        self._dirty = True
 
     def get_blacklist(self, token_id: int) -> Optional[BlacklistEntry]:
-        raw = self._open["blacklist_tokens"].get(self._k(token_id))
+        raw = self._data["blacklist_tokens"].get(self._k(token_id))
         return BlacklistEntry.from_dict(raw) if raw else None
 
     def iter_blacklist(self) -> Iterator[BlacklistEntry]:
-        for _, raw in self._open["blacklist_tokens"].iter_items():
+        for raw in self._data["blacklist_tokens"].values():
             yield BlacklistEntry.from_dict(raw)
 
     def delete_blacklist(self, token_id: int) -> None:
-        self._open["blacklist_tokens"].delete(self._k(token_id))
+        if self._data["blacklist_tokens"].pop(self._k(token_id), None) is not None:
+            self._dirty = True
 
     # ========================================================= substitution
     def put_substitution(self, entry: SubstitutionEntry) -> None:
-        self._open["substitution_map"].put(self._k(entry.token_id), entry.to_dict())
+        self._data["substitution_map"][self._k(entry.token_id)] = entry.to_dict()
+        self._dirty = True
 
     def get_substitution(self, token_id: int) -> Optional[SubstitutionEntry]:
-        raw = self._open["substitution_map"].get(self._k(token_id))
+        raw = self._data["substitution_map"].get(self._k(token_id))
         return SubstitutionEntry.from_dict(raw) if raw else None
 
     def iter_substitution(self) -> Iterator[SubstitutionEntry]:
-        for _, raw in self._open["substitution_map"].iter_items():
+        for raw in self._data["substitution_map"].values():
             yield SubstitutionEntry.from_dict(raw)
 
     def delete_substitution(self, token_id: int) -> None:
-        self._open["substitution_map"].delete(self._k(token_id))
+        if self._data["substitution_map"].pop(self._k(token_id), None) is not None:
+            self._dirty = True
 
     # ============================================================= metadata
     def put_metadata(self, entry: MetadataEntry) -> None:
-        self._open["metadata"].put(self._k(entry.token_id), entry.to_dict())
+        self._data["metadata"][self._k(entry.token_id)] = entry.to_dict()
+        self._dirty = True
 
     def get_metadata(self, token_id: int) -> Optional[MetadataEntry]:
-        raw = self._open["metadata"].get(self._k(token_id))
+        raw = self._data["metadata"].get(self._k(token_id))
         return MetadataEntry.from_dict(raw) if raw else None
 
     def upsert_metadata(self, entry: MetadataEntry) -> MetadataEntry:
@@ -120,26 +154,31 @@ class TokenRegistry(AbstractContextManager):
         return merged
 
     def iter_metadata(self) -> Iterator[MetadataEntry]:
-        for _, raw in self._open["metadata"].iter_items():
+        for raw in self._data["metadata"].values():
             yield MetadataEntry.from_dict(raw)
 
     # ========================================================== fallback_rules
     def put_fallback(self, rule: FallbackRule) -> None:
-        self._open["fallback_rules"].put(self._k(rule.token_id), rule.to_dict())
+        self._data["fallback_rules"][self._k(rule.token_id)] = rule.to_dict()
+        self._dirty = True
 
     def get_fallback(self, token_id: int) -> Optional[FallbackRule]:
-        raw = self._open["fallback_rules"].get(self._k(token_id))
+        raw = self._data["fallback_rules"].get(self._k(token_id))
         return FallbackRule.from_dict(raw) if raw else None
 
     def iter_fallback(self) -> Iterator[FallbackRule]:
-        for _, raw in self._open["fallback_rules"].iter_items():
+        for raw in self._data["fallback_rules"].values():
             yield FallbackRule.from_dict(raw)
+
+    def delete_fallback(self, token_id: int) -> None:
+        if self._data["fallback_rules"].pop(self._k(token_id), None) is not None:
+            self._dirty = True
 
     # =============================================================== summary
     def counts(self) -> dict[str, int]:
-        return {name: len(db) for name, db in self._open.items()}
+        return {s: len(self._data[s]) for s in SECTIONS}
 
     def lookup(self, token_id: int) -> dict[str, Optional[dict]]:
-        """Return the token's rows across every sub-db (for debugging)."""
+        """Return the token's rows across every section (for runtime + debug)."""
         k = self._k(token_id)
-        return {name: db.get(k) for name, db in self._open.items()}
+        return {s: self._data[s].get(k) for s in SECTIONS}
