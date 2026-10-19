@@ -132,10 +132,11 @@ def _parse_args(argv: list[str]) -> argparse.Namespace:
         help="NAME=FLOAT ensemble weight (e.g. moonshotai/Kimi-K2-Instruct=1.5)",
     )
 
-    # Decision thresholds (PDF defaults)
-    p.add_argument("--a-fail-below", type=float, default=0.30)
-    p.add_argument("--b-fail-below", type=float, default=0.50)
-    p.add_argument("--b-pass-above", type=float, default=0.70)
+    # Share defaults with direct calls to classify(); CLI flags remain overrides.
+    defaults = DecisionConfig()
+    p.add_argument("--a-fail-below", type=float, default=defaults.a_fail_below)
+    p.add_argument("--b-fail-below", type=float, default=defaults.b_fail_below)
+    p.add_argument("--b-pass-above", type=float, default=defaults.b_pass_above)
 
     p.add_argument("--progress", action="store_true", help="Show tqdm progress")
     return p.parse_args(argv)

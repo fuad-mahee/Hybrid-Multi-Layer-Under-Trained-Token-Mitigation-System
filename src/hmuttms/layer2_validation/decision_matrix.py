@@ -8,10 +8,10 @@ Inputs per token:
     * ``model_b_score``  — how well Model B (superior) handles it, in [0, 1].
                            Produced by a :class:`TokenProbe` in Layer 2.
 
-Rules (PDF):
-    * A < 0.3  AND  B < 0.5  -> ``BLACKLIST``         (confirmed undertrained)
-    * A < 0.3  AND  B > 0.7  -> ``SUBSTITUTABLE``     (model-specific weakness)
-    * A >= 0.3 AND  B >= 0.7 -> ``FALSE_POSITIVE``    (drop)
+Rules with current default thresholds:
+    * A < 0.3  AND  B < 0.5  -> ``BLACKLIST``         (fails both score thresholds)
+    * A < 0.3  AND  B > 0.6  -> ``SUBSTITUTABLE``     (model-specific weakness)
+    * A >= 0.3 AND  B > 0.6  -> ``FALSE_POSITIVE``    (drop)
     * anything else          -> ``REVIEW``            (inconclusive band)
 
 Thresholds are configurable via :class:`DecisionConfig`.
@@ -42,7 +42,7 @@ def classify(
     model_b_score: Optional[float],
     cfg: DecisionConfig | None = None,
 ) -> Classification:
-    """Apply the PDF decision matrix to a single token."""
+    """Apply the configured decision matrix to a single token."""
     cfg = cfg or DecisionConfig()
     a = float(model_a_score)
     # Missing Model-B result: cannot distinguish blacklist vs. substitutable.
