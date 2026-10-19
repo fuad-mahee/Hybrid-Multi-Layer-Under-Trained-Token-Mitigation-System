@@ -51,7 +51,7 @@ The registry supports a RocksDB-backed implementation through `rocksdict` and a 
 
 ### Candidate classification
 
-The current defaults in [`DecisionConfig`](src/hmuttms/layer2_validation/decision_matrix.py) are:
+The defaults shared by [`DecisionConfig`](src/hmuttms/layer2_validation/decision_matrix.py) and the [Layer 2 command-line entry point](src/hmuttms/layer2_validation/run_layer2.py) are:
 
 | Target-model score A | Reference-model score B | Classification |
 |---|---|---|
@@ -85,7 +85,7 @@ The project builds on existing research and software. Magikarp and GlitchMiner p
 
 ## Initial experimental status
 
-The [first-run project notes](https://docs.google.com/document/d/1l5_AoTypne2BialXow6xIQ0NdDVoBseW7wpJX4OJyAc/edit?tab=t.kff3jhdnw1yz) describe Qwen2.5-7B-Instruct as the target and Qwen2.5-14B-Instruct as the reference model.
+The [repository-local initial-run record](docs/INITIAL_RUN_NOTES.md) summarizes the observations and caveats in the [first-run project notes](https://docs.google.com/document/d/1l5_AoTypne2BialXow6xIQ0NdDVoBseW7wpJX4OJyAc/edit?tab=t.kff3jhdnw1yz). These notes describe Qwen2.5-7B-Instruct as the target and Qwen2.5-14B-Instruct as the reference model. Llama and Kimi identifiers in code examples and cached-data paths illustrate other configurations; they do not identify the models used in this recorded Qwen run.
 
 | Recorded observation | Interpretation |
 |---|---|
@@ -100,7 +100,7 @@ These observations are reported from development notes, not a corrected benchmar
 
 **Bloom-filter artifact mismatch.** The notes report that evaluation loaded an older filter containing all detection candidates, while the rebuilt registry-based filter was saved elsewhere. A corrected evaluation must use the same registry and rebuilt filter as the runtime pipeline. A path correction alone does not establish zero false positives.
 
-**Discrete validation scores.** The three-probe reference-model score takes values of 0, 1/3, 2/3, or 1. Lowering the pass threshold from 0.70 to 0.60 admits the two-of-three category. This is an evaluation-policy change requiring regenerated classifications and comparison with the earlier setting. It does not guarantee that substitution becomes applicable: replacement data and routing conditions still matter. The executable defaults use 0.60, while some historical descriptions retain 0.70.
+**Discrete validation scores and CLI consistency.** The three-probe reference-model score takes values of 0, 1/3, 2/3, or 1. Lowering the pass threshold from 0.70 to 0.60 admits the two-of-three category. A subsequent code review found that the command-line parser still used 0.70 and overrode the 0.60 value in `DecisionConfig`. The parser now derives its defaults from `DecisionConfig`, and the rule documentation uses the same strict `B > 0.60` comparison. This correction does not change saved results: classifications, the registry, and the Bloom filter must be regenerated and compared with the earlier setting. Replacement data and routing conditions still determine whether substitution is applicable.
 
 **Limited quality measurement.** The built-in quality checker measures simple surface properties. It cannot establish factual correctness, semantic equivalence, preservation of identifiers, or successful task completion. The next evaluation must score those outcomes directly.
 
@@ -122,11 +122,15 @@ These observations are reported from development notes, not a corrected benchmar
 |-- magikarp_lib/
 |-- glitchminer_lib/
 |-- data/
+|-- docs/INITIAL_RUN_NOTES.md
+|-- tests/test_layer2_thresholds.py
 |-- pyproject.toml
 `-- requirements.txt
 ```
 
 `data/` includes pre-collected detector material and cached results. Its contents should not be assumed to belong to the Qwen first run or to share a tokenizer. Cached records must be checked against the target model, tokenizer, and probe procedure before reuse.
+
+`src/run_magikarp_tests.py` is a legacy placeholder with a hypothetical Magikarp API; it is not the supported HMUTTMS pipeline entry point. Use `hmuttms.run_full_pipeline` below.
 
 ## Setup and execution
 
